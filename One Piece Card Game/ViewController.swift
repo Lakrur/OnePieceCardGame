@@ -15,11 +15,15 @@ class ViewController: UIViewController {
         }
     }
     
+    var isOpen = false
+    
     func flipButton(charchter: UIImage, button: UIButton) {
         if button.currentImage == charchter {
-            button.setImage(UIImage(named: "flag"), for: .normal)
+             button.setImage(UIImage(named: "flag"), for: .normal)
+            UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
         } else {
             button.setImage(charchter, for: .normal)
+            UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
         }
     }
         
@@ -46,6 +50,13 @@ class ViewController: UIViewController {
         }
         
         @IBAction func buttonAction(_ sender: UIButton) {
+            
+            if isOpen {
+                isOpen = false
+            } else {
+                isOpen = true
+            }
+            
             touches += 1
             let buttonIndex = buttonCollection.firstIndex(of: sender)!
             flipButton(charchter: charachterCollection[buttonIndex]!, button: sender)
