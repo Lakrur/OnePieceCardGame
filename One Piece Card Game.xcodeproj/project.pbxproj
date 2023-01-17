@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		788DA40529761CC000152C1E /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 788DA40429761CC000152C1E /* music.mp3 */; };
 		78E9B55C2975F4D70027533D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55B2975F4D70027533D /* AppDelegate.swift */; };
 		78E9B55E2975F4D70027533D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55D2975F4D70027533D /* SceneDelegate.swift */; };
 		78E9B5602975F4D70027533D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55F2975F4D70027533D /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		788DA40429761CC000152C1E /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = SOURCE_ROOT; };
 		78E9B5582975F4D70027533D /* One Piece Card Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "One Piece Card Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E9B55B2975F4D70027533D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78E9B55D2975F4D70027533D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				78E9B55D2975F4D70027533D /* SceneDelegate.swift */,
 				78E9B55F2975F4D70027533D /* ViewController.swift */,
 				78E9B5612975F4D70027533D /* Main.storyboard */,
+				788DA40429761CC000152C1E /* music.mp3 */,
 				78E9B5642975F4D80027533D /* Assets.xcassets */,
 				78E9B5662975F4D80027533D /* LaunchScreen.storyboard */,
 				78E9B5692975F4D80027533D /* Info.plist */,
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				788DA40529761CC000152C1E /* music.mp3 in Resources */,
 				78E9B5682975F4D80027533D /* LaunchScreen.storyboard in Resources */,
 				78E9B5652975F4D80027533D /* Assets.xcassets in Resources */,
 				78E9B5632975F4D70027533D /* Main.storyboard in Resources */,

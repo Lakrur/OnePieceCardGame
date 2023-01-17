@@ -6,16 +6,16 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class ViewController: UIViewController {
 
+    var player: AVPlayer!
     var touches = 0 {
         didSet {
             touchLabel.text = "Touches: \(touches)"
         }
     }
-    
-    var isOpen = false
     
     func flipButton(charchter: UIImage, button: UIButton) {
         if button.currentImage == charchter {
@@ -40,27 +40,36 @@ class ViewController: UIViewController {
      UIImage(named: "zoro")]
         
         
-        
+        @IBOutlet weak var soundButton: UIButton!
         @IBOutlet weak var touchLabel: UILabel!
         @IBOutlet var buttonCollection: [UIButton]!
         
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             
-        }
-        
-        @IBAction func buttonAction(_ sender: UIButton) {
+            player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "music", ofType: "mp3")!))
             
-            if isOpen {
-                isOpen = false
-            } else {
-                isOpen = true
-            }
+            soundButton.setImage(UIImage(named: "den-den(off)"), for: .normal)
+        }
+
+    
+    @IBAction func soundButtonAction(_ sender: UIButton) {
+        
+        if player.timeControlStatus == .playing {
+            player.pause()
+            soundButton.setImage(UIImage(named: "den-den(off)"), for: .normal)
+        } else {
+            player.play()
+            soundButton.setImage(UIImage(named: "den-den(on)"), for: .normal)
+        }
+    }
+    
+        @IBAction func buttonAction(_ sender: UIButton) {
             
             touches += 1
             let buttonIndex = buttonCollection.firstIndex(of: sender)!
             flipButton(charchter: charachterCollection[buttonIndex]!, button: sender)
         }
     }
-
 
