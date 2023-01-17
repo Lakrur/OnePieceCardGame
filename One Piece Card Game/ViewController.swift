@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var touches = 0 {
         didSet {
             touchLabel.text = "Touches: \(touches)"
+            
         }
     }
     
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
         @IBOutlet weak var soundButton: UIButton!
         @IBOutlet weak var touchLabel: UILabel!
         @IBOutlet var buttonCollection: [UIButton]!
-        
+        @IBOutlet weak var resetTouches: UIButton!
     
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -64,6 +65,15 @@ class ViewController: UIViewController {
             soundButton.setImage(UIImage(named: "den-den(on)"), for: .normal)
         }
     }
+    
+    
+    @IBAction func resetButtonAction(_ sender: UIButton) {
+        touches = 0
+        touchLabel.text = "Touches: \(touches)"
+        
+    }
+    
+    
     
         @IBAction func buttonAction(_ sender: UIButton) {
             
