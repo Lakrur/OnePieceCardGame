@@ -53,8 +53,18 @@ class ViewController: UIViewController {
             
             soundButton.setImage(UIImage(named: "den-den(off)"), for: .normal)
         }
-
     
+    // Locking Orientation: Portrait
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+
+    // Sound Button
     @IBAction func soundButtonAction(_ sender: UIButton) {
         
         if player.timeControlStatus == .playing {
@@ -66,7 +76,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    // Reset Touches Button
     @IBAction func resetButtonAction(_ sender: UIButton) {
         touches = 0
         touchLabel.text = "Touches: \(touches)"
@@ -74,7 +84,7 @@ class ViewController: UIViewController {
     }
     
     
-    
+        // Card Buttons
         @IBAction func buttonAction(_ sender: UIButton) {
             
             touches += 1
