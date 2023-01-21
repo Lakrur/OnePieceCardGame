@@ -8,9 +8,8 @@
 import UIKit
 import MediaPlayer
 
-
 class ViewController: UIViewController {
-    
+
     var flippedCharachter: Charachter?
     var player: AVPlayer!
     var belly = 0 {
@@ -47,6 +46,7 @@ class ViewController: UIViewController {
     func resetCard() {
         for button in buttonCollection {
             button.setImage(UIImage(named: "flag"), for: .normal)
+            button.isEnabled = true
         }
     }
     
@@ -57,9 +57,11 @@ class ViewController: UIViewController {
         if button.currentImage == charchter.picture {
             button.setImage(UIImage(named: "flag"), for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
+            button.isEnabled = true
         } else {
             button.setImage(charchter.picture, for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
+            button.isEnabled = false
         }
     }
     
@@ -119,22 +121,23 @@ class ViewController: UIViewController {
         let buttonIndex = buttonCollection.firstIndex(of: sender)!
         flipButton(charchter: charachterCollection[buttonIndex], button: sender)
         
+        
         guard let flippedCharachter = flippedCharachter else {
             flippedCharachter = charachterCollection[buttonIndex]
-    
+           
             return
             
         }
         if flippedCharachter.id == charachterCollection[buttonIndex].id {
-            
             belly += 10
+            charachterCollection.shuffle()
+            
         }
         
-    
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.flippedCharachter = nil
-                self.resetCard()
-            //UIView.transition(with: sender, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
+            self.flippedCharachter = nil
+            self.resetCard()
+              //  UIView.transition(with:  sender, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
         }
     }
 }
