@@ -8,11 +8,10 @@
 import UIKit
 import MediaPlayer
 
+
 class ViewController: UIViewController {
     
-    
     var flippedCharachter: Charachter?
-    var flippedCards = 0
     var player: AVPlayer!
     var belly = 0 {
         didSet {
@@ -44,12 +43,14 @@ class ViewController: UIViewController {
      Charachter(id: 5, picture: UIImage(named: "whitebeard")!),
      Charachter(id: 5, picture: UIImage(named: "whitebeard")!)].shuffled()
     
-    
+    // reset flipped card
     func resetCard() {
-            for button in buttonCollection {
-                button.setImage(UIImage(named: "flag"), for: .normal)
+        for button in buttonCollection {
+            button.setImage(UIImage(named: "flag"), for: .normal)
         }
     }
+    
+    // func flip button
     
     func flipButton(charchter: Charachter, button: UIButton) {
         
@@ -59,15 +60,18 @@ class ViewController: UIViewController {
         } else {
             button.setImage(charchter.picture, for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
-
         }
-
-}
+    }
+    
+    //Outlet var's
+    
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet weak var touchLabel: UILabel!
     @IBOutlet var buttonCollection: [UIButton]!
     @IBOutlet weak var resetTouches: UIButton!
     @IBOutlet weak var bellyCounter: UILabel!
+    
+    // func viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +90,8 @@ class ViewController: UIViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+
+    //
     
     // Sound Button
     @IBAction func soundButtonAction(_ sender: UIButton) {
@@ -103,7 +109,7 @@ class ViewController: UIViewController {
     @IBAction func resetButtonAction(_ sender: UIButton) {
         touches = 0
         touchLabel.text = "Touches: \(touches)"
-        
+        UIView.transition(with: self.resetTouches, duration: 0.4,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
     }
     
     
@@ -115,18 +121,20 @@ class ViewController: UIViewController {
         
         guard let flippedCharachter = flippedCharachter else {
             flippedCharachter = charachterCollection[buttonIndex]
-            
+    
             return
             
         }
         if flippedCharachter.id == charachterCollection[buttonIndex].id {
-            flipButton(charchter: flippedCharachter, button: sender)
-            self.flippedCharachter = nil
-            resetCard()
+            
             belly += 10
+        }
+        
     
-        } else {
-    
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.flippedCharachter = nil
+                self.resetCard()
+            //UIView.transition(with: sender, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
         }
     }
 }
