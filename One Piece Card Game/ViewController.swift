@@ -10,7 +10,7 @@ import MediaPlayer
 
 class ViewController: UIViewController {
 
-    var flippedCharachter: Charachter?
+    var flippedCharachter: (character: Charachter, button: UIButton)?
     var player: AVPlayer!
     var belly = 0 {
         didSet {
@@ -123,21 +123,28 @@ class ViewController: UIViewController {
         
         
         guard let flippedCharachter = flippedCharachter else {
-            flippedCharachter = charachterCollection[buttonIndex]
-           
+            flippedCharachter = (charachterCollection[buttonIndex], sender)
             return
-            
         }
-        if flippedCharachter.id == charachterCollection[buttonIndex].id {
+        
+        for button in buttonCollection {
+            button.isEnabled = false
+        }
+        
+        if flippedCharachter.character.id == charachterCollection[buttonIndex].id {
             belly += 10
             charachterCollection.shuffle()
-            
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.flippedCharachter = nil
             self.resetCard()
-              //  UIView.transition(with:  sender, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
+            UIView.transition(with:  flippedCharachter.button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
+            UIView.transition(with:  sender, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: { _ in
+                for button in self.buttonCollection {
+                    button.isEnabled = true
+                }
+            })
         }
     }
 }
