@@ -17,12 +17,6 @@ class ViewController: UIViewController {
             bellyCounter.text = ": \(belly)"
         }
     }
-    var touches = 0 {
-        didSet {
-            touchLabel.text = "Touches: \(touches)"
-            
-        }
-    }
     
     struct Charachter {
         var id: Int
@@ -31,16 +25,24 @@ class ViewController: UIViewController {
     
     
     var charachterCollection: [Charachter] =
-    [Charachter(id: 1, picture: UIImage(named: "luffy")!),
-     Charachter(id: 1, picture: UIImage(named: "luffy")!),
-     Charachter(id: 2, picture: UIImage(named: "zoro")!),
-     Charachter(id: 2, picture: UIImage(named: "zoro")!),
-     Charachter(id: 3, picture: UIImage(named: "brook")!),
-     Charachter(id: 3, picture: UIImage(named: "brook")!),
-     Charachter(id: 4, picture: UIImage(named: "usopp")!),
-     Charachter(id: 4, picture: UIImage(named: "usopp")!),
-     Charachter(id: 5, picture: UIImage(named: "whitebeard")!),
-     Charachter(id: 5, picture: UIImage(named: "whitebeard")!)].shuffled()
+    [Charachter(id: 1, picture: UIImage(named: "babyLuffy")!),
+     Charachter(id: 1, picture: UIImage(named: "babyLuffy")!),
+     Charachter(id: 2, picture: UIImage(named: "babyZoro")!),
+     Charachter(id: 2, picture: UIImage(named: "babyZoro")!),
+     Charachter(id: 3, picture: UIImage(named: "babyCoby")!),
+     Charachter(id: 3, picture: UIImage(named: "babyCoby")!),
+     Charachter(id: 4, picture: UIImage(named: "babyUsopp")!),
+     Charachter(id: 4, picture: UIImage(named: "babyUsopp")!),
+     Charachter(id: 5, picture: UIImage(named: "alvida")!),
+     Charachter(id: 5, picture: UIImage(named: "alvida")!),
+     Charachter(id: 6, picture: UIImage(named: "buggy")!),
+     Charachter(id: 6, picture: UIImage(named: "buggy")!),
+     Charachter(id: 7, picture: UIImage(named: "helmeppo")!),
+     Charachter(id: 7, picture: UIImage(named: "helmeppo")!),
+     Charachter(id: 8, picture: UIImage(named: "morgan")!),
+     Charachter(id: 8, picture: UIImage(named: "morgan")!),
+     Charachter(id: 9, picture: UIImage(named: "nami1ep")!),
+     Charachter(id: 9, picture: UIImage(named: "nami1ep")!),].shuffled()
     
     // reset flipped card
     func resetCard() {
@@ -68,9 +70,7 @@ class ViewController: UIViewController {
     //Outlet var's
     
     @IBOutlet weak var soundButton: UIButton!
-    @IBOutlet weak var touchLabel: UILabel!
     @IBOutlet var buttonCollection: [UIButton]!
-    @IBOutlet weak var resetTouches: UIButton!
     @IBOutlet weak var bellyCounter: UILabel!
     
     // func viewDidLoad
@@ -107,17 +107,10 @@ class ViewController: UIViewController {
         }
     }
     
-    // Reset Touches Button
-    @IBAction func resetButtonAction(_ sender: UIButton) {
-        touches = 0
-        touchLabel.text = "Touches: \(touches)"
-        UIView.transition(with: self.resetTouches, duration: 0.4,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
-    }
     
     
     // Card Buttons
     @IBAction func buttonAction(_ sender: UIButton) {
-        touches += 1
         let buttonIndex = buttonCollection.firstIndex(of: sender)!
         flipButton(charchter: charachterCollection[buttonIndex], button: sender)
         
