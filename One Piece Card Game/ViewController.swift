@@ -44,7 +44,7 @@ class ViewController: UIViewController {
      Charachter(id: 9, picture: UIImage(named: "nami1ep")!),
      Charachter(id: 9, picture: UIImage(named: "nami1ep")!),].shuffled()
     
-    // reset flipped card
+    // MARK: reset flipped card
     func resetCard() {
         for button in buttonCollection {
             button.setImage(UIImage(named: "flag"), for: .normal)
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // func flip button
+    // MARK: func flip button
     
     func flipButton(charchter: Charachter, button: UIButton) {
         
@@ -67,23 +67,43 @@ class ViewController: UIViewController {
         }
     }
     
-    //Outlet var's
+    // MARK: Outlet var's
     
     @IBOutlet weak var soundButton: UIButton!
     @IBOutlet var buttonCollection: [UIButton]!
     @IBOutlet weak var bellyCounter: UILabel!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var rightSideMenu: UIView!
+    @IBOutlet weak var rightSideTrallingAnchor: NSLayoutConstraint!
+    @IBOutlet weak var leftSideMenu: UIView!
+    @IBOutlet weak var leftSideMenuLeadingAnchor: NSLayoutConstraint!
     
-    // func viewDidLoad
+    // MARK: func viewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "music", ofType: "mp3")!))
         
-        soundButton.setImage(UIImage(named: "den-den(off)"), for: .normal)
+ 
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
+        rightSideMenu.addGestureRecognizer(tapGesture )
     }
     
-    // Locking Orientation: Portrait
+    // MARK: Menu
+    
+    @objc func tapGestureAction() {
+        leftSideMenuLeadingAnchor.constant = -300
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+        DispatchQueue.main.async {
+            self.rightSideTrallingAnchor.constant = 180
+        }
+    }
+    
+    // MARK: Locking Orientation: Portrait
     
     override var shouldAutorotate: Bool {
         return false
@@ -95,7 +115,7 @@ class ViewController: UIViewController {
 
     //
     
-    // Sound Button
+    // MARK: Sound Button
     @IBAction func soundButtonAction(_ sender: UIButton) {
         
         if player.timeControlStatus == .playing {
@@ -109,7 +129,7 @@ class ViewController: UIViewController {
     
     
     
-    // Card Buttons
+    // MARK: Card Buttons
     @IBAction func buttonAction(_ sender: UIButton) {
         let buttonIndex = buttonCollection.firstIndex(of: sender)!
         flipButton(charchter: charachterCollection[buttonIndex], button: sender)
@@ -140,5 +160,17 @@ class ViewController: UIViewController {
             })
         }
     }
+    
+    // MARK: Menu Button Action
+    
+    @IBAction func menuButtonAction(_ sender: Any) {
+        leftSideMenuLeadingAnchor.constant = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        }) { _ in
+            self.rightSideTrallingAnchor.constant = 0
+        }
+    }
+    
 }
 
