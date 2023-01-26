@@ -21,8 +21,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQn-F4-DSF">
-                                <rect key="frame" x="19" y="88" width="103" height="101"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQn-F4-DSF">
+                                <rect key="frame" x="19" y="88" width="103" height="114"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="flag" title=""/>
                                 <connections>
@@ -192,7 +192,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="secondaryLabelColor"/>
+                                <color key="backgroundColor" red="0.11171310956858399" green="0.11165837931780813" blue="0.12453009357157441" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="nzf-kY-oCu" firstAttribute="top" secondItem="t7k-nP-Ni7" secondAttribute="top" constant="125" id="CIz-Za-QaI"/>
                                     <constraint firstItem="nzf-kY-oCu" firstAttribute="leading" secondItem="t7k-nP-Ni7" secondAttribute="leading" constant="55" id="YnH-rn-GCt"/>
@@ -200,14 +200,35 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBr-Cm-WnR">
-                                <rect key="frame" x="-300" y="0.0" width="249" height="844"/>
+                                <rect key="frame" x="-300" y="0.0" width="256.33333333333331" height="844"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pr-hm-XHX">
-                                        <rect key="frame" x="88" y="55" width="48" height="23"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pr-hm-XHX">
+                                        <rect key="frame" x="88" y="55.000000000000007" width="55.333333333333343" height="26.333333333333336"/>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB1-A6-rDB">
+                                        <rect key="frame" x="24" y="100" width="143" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="play" title="Continue Play"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oa0-eZ-sVn">
+                                        <rect key="frame" x="24.000000000000007" y="154" width="117.66666666666669" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="shop" title="Shop"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY0-ad-lqn">
+                                        <rect key="frame" x="24" y="197" width="137" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="settings" title="Settings"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                                 <color key="tintColor" systemColor="systemBrownColor"/>
@@ -238,7 +259,7 @@
                             <constraint firstAttribute="bottom" secondItem="rmv-ds-qBM" secondAttribute="bottom" constant="32" id="Fom-Nc-e24"/>
                             <constraint firstItem="dB9-Uw-tmH" firstAttribute="leading" secondItem="6pU-Hk-nia" secondAttribute="trailing" constant="24" id="G8m-wt-reM"/>
                             <constraint firstItem="KQn-F4-DSF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="19" id="Hb2-XX-1gL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t6B-RJ-R2U" secondAttribute="trailing" constant="19" id="Lbo-La-gxX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="t6B-RJ-R2U" secondAttribute="trailing" constant="18" id="Lbo-La-gxX"/>
                             <constraint firstItem="Er2-rp-dLS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="MiD-0g-aMv"/>
                             <constraint firstItem="VWB-Dp-Hh6" firstAttribute="top" secondItem="vAm-p3-iNF" secondAttribute="bottom" constant="-5" id="NQk-Ld-tPJ"/>
                             <constraint firstItem="9V6-8Y-Ase" firstAttribute="leading" secondItem="vAm-p3-iNF" secondAttribute="trailing" constant="24" id="OUq-W1-e7N"/>
@@ -315,9 +336,9 @@
         <image name="belly" width="10" height="16"/>
         <image name="flag" width="99.5" height="100"/>
         <image name="menu" width="30" height="30"/>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="play" width="50" height="50"/>
+        <image name="settings" width="50" height="50"/>
+        <image name="shop" width="54" height="50"/>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

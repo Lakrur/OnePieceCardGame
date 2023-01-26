@@ -85,13 +85,12 @@ class ViewController: UIViewController {
         
         player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "music", ofType: "mp3")!))
         
- 
+        // MARK: Menu
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
         rightSideMenu.addGestureRecognizer(tapGesture )
     }
     
-    // MARK: Menu
     
     @objc func tapGestureAction() {
         leftSideMenuLeadingAnchor.constant = -300
