@@ -171,5 +171,16 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK: Menu Buttons
+    
+    
+    @IBAction func continuePlay(_ sender: Any) {
+        tapGestureAction()
+    }
+    
 }
+
+
+
+
 
