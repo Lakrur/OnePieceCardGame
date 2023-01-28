@@ -245,13 +245,29 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="shop" title="Shop"/>
+                                        <connections>
+                                            <segue destination="kF1-8I-gjS" kind="presentation" modalPresentationStyle="fullScreen" id="y4o-nR-LAA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NY0-ad-lqn">
-                                        <rect key="frame" x="24" y="197" width="137" height="64"/>
+                                        <rect key="frame" x="24" y="247" width="137" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="settings" title="Settings"/>
+                                        <connections>
+                                            <segue destination="WAu-sk-Xf7" kind="presentation" modalPresentationStyle="fullScreen" id="sv1-Vj-UdQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPZ-71-F0O">
+                                        <rect key="frame" x="15" y="207" width="169" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="inventory" title="Inventory"/>
+                                        <connections>
+                                            <segue destination="1w5-RV-4oE" kind="presentation" modalPresentationStyle="fullScreen" id="gFN-lk-F8o"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
@@ -314,13 +330,158 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="673.84615384615381" y="-1.4218009478672986"/>
+            <point key="canvasLocation" x="640" y="96"/>
+        </scene>
+        <!--Inventory View Controller-->
+        <scene sceneID="pD4-g9-vr1">
+            <objects>
+                <viewController id="1w5-RV-4oE" userLabel="Inventory View Controller" customClass="InventoryViewController" customModule="One_Piece_Card_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FD5-bs-2qH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXO-H5-NwV">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tuy-cQ-fyz" userLabel="BackButton">
+                                <rect key="frame" x="16" y="47" width="74" height="64"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backButton" title=""/>
+                                <connections>
+                                    <action selector="goBack:" destination="1w5-RV-4oE" eventType="touchUpInside" id="drV-Wd-6G1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Inventory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tci-xG-cxb">
+                                <rect key="frame" x="144" y="60" width="103" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="AHd-Ih-84a"/>
+                                    <constraint firstAttribute="width" constant="103" id="LYh-D0-O3s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="21"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mzP-fH-XbA"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vXO-H5-NwV" firstAttribute="trailing" secondItem="mzP-fH-XbA" secondAttribute="trailing" id="Exq-wt-L2l"/>
+                            <constraint firstItem="Tuy-cQ-fyz" firstAttribute="top" secondItem="mzP-fH-XbA" secondAttribute="top" id="Gyx-46-rC0"/>
+                            <constraint firstItem="vXO-H5-NwV" firstAttribute="top" secondItem="FD5-bs-2qH" secondAttribute="top" id="IPF-aE-UxY"/>
+                            <constraint firstItem="Tci-xG-cxb" firstAttribute="top" secondItem="mzP-fH-XbA" secondAttribute="top" constant="13" id="Muj-wh-sHN"/>
+                            <constraint firstItem="mzP-fH-XbA" firstAttribute="trailing" secondItem="Tci-xG-cxb" secondAttribute="trailing" constant="143" id="NST-DE-XC8"/>
+                            <constraint firstItem="vXO-H5-NwV" firstAttribute="leading" secondItem="mzP-fH-XbA" secondAttribute="leading" id="VEE-Uo-GI3"/>
+                            <constraint firstItem="Tuy-cQ-fyz" firstAttribute="leading" secondItem="mzP-fH-XbA" secondAttribute="leading" constant="16" id="u9h-UO-9PT"/>
+                            <constraint firstItem="mzP-fH-XbA" firstAttribute="bottom" secondItem="vXO-H5-NwV" secondAttribute="bottom" constant="682" id="u9j-wC-U7a"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wnv-da-NcV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301.5384615384614" y="95.97156398104265"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="gRb-Uf-jq1">
+            <objects>
+                <viewController id="WAu-sk-Xf7" userLabel="Settings View Controller" customClass="SettingsViewController" customModule="One_Piece_Card_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eHs-eD-3W8">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVR-V2-iXY">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-9M-qJF" userLabel="BackButton">
+                                <rect key="frame" x="16" y="47" width="74" height="64"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backButton" title=""/>
+                                <connections>
+                                    <action selector="goBack:" destination="WAu-sk-Xf7" eventType="touchUpInside" id="IVL-16-DZB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuV-CV-He1">
+                                <rect key="frame" x="154" y="60" width="83" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Use-wS-qYx"/>
+                                    <constraint firstAttribute="width" constant="83" id="yA3-yF-jI4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="21"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3zo-kp-Fvb"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fgW-9M-qJF" firstAttribute="leading" secondItem="3zo-kp-Fvb" secondAttribute="leading" constant="16" id="1Ha-u9-xyP"/>
+                            <constraint firstItem="fgW-9M-qJF" firstAttribute="top" secondItem="3zo-kp-Fvb" secondAttribute="top" id="ABy-f0-aJu"/>
+                            <constraint firstItem="LVR-V2-iXY" firstAttribute="trailing" secondItem="3zo-kp-Fvb" secondAttribute="trailing" id="Akq-2n-6Kv"/>
+                            <constraint firstItem="LVR-V2-iXY" firstAttribute="leading" secondItem="3zo-kp-Fvb" secondAttribute="leading" id="CPa-Cz-UuM"/>
+                            <constraint firstItem="zuV-CV-He1" firstAttribute="top" secondItem="3zo-kp-Fvb" secondAttribute="top" constant="13" id="F5O-ZE-pyd"/>
+                            <constraint firstItem="3zo-kp-Fvb" firstAttribute="bottom" secondItem="LVR-V2-iXY" secondAttribute="bottom" constant="682" id="KXR-y8-gD6"/>
+                            <constraint firstItem="LVR-V2-iXY" firstAttribute="top" secondItem="eHs-eD-3W8" secondAttribute="top" id="XlO-05-7r0"/>
+                            <constraint firstItem="3zo-kp-Fvb" firstAttribute="trailing" secondItem="zuV-CV-He1" secondAttribute="trailing" constant="153" id="ka1-EL-w8O"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQo-NH-eHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301.5384615384614" y="964.69194312796208"/>
+        </scene>
+        <!--Shop View Controller-->
+        <scene sceneID="rkQ-9q-TAx">
+            <objects>
+                <viewController id="kF1-8I-gjS" userLabel="Shop View Controller" customClass="ShopViewController" customModule="One_Piece_Card_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xp0-OA-FgA">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-qn-FbM">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="849-In-ggt" userLabel="BackButton">
+                                <rect key="frame" x="23" y="47" width="59" height="63"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="backButton" title=""/>
+                                <connections>
+                                    <action selector="goBack:" destination="kF1-8I-gjS" eventType="touchUpInside" id="7xQ-nG-ZdU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ns7-q9-cCO">
+                                <rect key="frame" x="169" y="68" width="53" height="21"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="21"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ypf-uv-9v9"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="849-In-ggt" firstAttribute="top" secondItem="ypf-uv-9v9" secondAttribute="top" id="8ss-Ls-1nJ"/>
+                            <constraint firstItem="849-In-ggt" firstAttribute="leading" secondItem="ypf-uv-9v9" secondAttribute="leading" constant="23" id="MZM-CJ-F0v"/>
+                            <constraint firstItem="ypf-uv-9v9" firstAttribute="bottom" secondItem="Q9A-qn-FbM" secondAttribute="bottom" constant="682" id="bu4-jG-ivA"/>
+                            <constraint firstItem="ns7-q9-cCO" firstAttribute="top" secondItem="ypf-uv-9v9" secondAttribute="top" constant="21" id="j94-Y9-D3e"/>
+                            <constraint firstItem="Q9A-qn-FbM" firstAttribute="leading" secondItem="ypf-uv-9v9" secondAttribute="leading" id="l7p-KS-bkG"/>
+                            <constraint firstItem="Q9A-qn-FbM" firstAttribute="top" secondItem="xp0-OA-FgA" secondAttribute="top" id="m2z-Td-bLf"/>
+                            <constraint firstItem="ypf-uv-9v9" firstAttribute="trailing" secondItem="ns7-q9-cCO" secondAttribute="trailing" constant="168" id="tZs-cz-r16"/>
+                            <constraint firstItem="Q9A-qn-FbM" firstAttribute="trailing" secondItem="ypf-uv-9v9" secondAttribute="trailing" id="zu2-g1-khL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oaN-BN-145" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301.5384615384614" y="-897.15639810426535"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemBrownColor"/>
     <resources>
+        <image name="backButton" width="50" height="50"/>
         <image name="belly" width="10" height="16"/>
         <image name="flag" width="99.5" height="100"/>
+        <image name="inventory" width="50" height="47.5"/>
         <image name="menu" width="30" height="30"/>
         <image name="play" width="50" height="50"/>
         <image name="settings" width="50" height="50"/>

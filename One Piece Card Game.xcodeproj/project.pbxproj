@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		788DA40529761CC000152C1E /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 788DA40429761CC000152C1E /* music.mp3 */; };
+		78E5AA03298581E600695C39 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5AA02298581E600695C39 /* ShopViewController.swift */; };
+		78E5AA05298581F600695C39 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5AA04298581F600695C39 /* InventoryViewController.swift */; };
+		78E5AA072985820500695C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5AA062985820500695C39 /* SettingsViewController.swift */; };
 		78E9B55C2975F4D70027533D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55B2975F4D70027533D /* AppDelegate.swift */; };
 		78E9B55E2975F4D70027533D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55D2975F4D70027533D /* SceneDelegate.swift */; };
 		78E9B5602975F4D70027533D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55F2975F4D70027533D /* ViewController.swift */; };
@@ -18,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		788DA40429761CC000152C1E /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = SOURCE_ROOT; };
+		78E5AA02298581E600695C39 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		78E5AA04298581F600695C39 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		78E5AA062985820500695C39 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		78E9B5582975F4D70027533D /* One Piece Card Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "One Piece Card Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E9B55B2975F4D70027533D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78E9B55D2975F4D70027533D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78E5AA012985813D00695C39 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				78E9B55F2975F4D70027533D /* ViewController.swift */,
+				78E5AA02298581E600695C39 /* ShopViewController.swift */,
+				78E5AA04298581F600695C39 /* InventoryViewController.swift */,
+				78E5AA062985820500695C39 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		78E9B54F2975F4D70027533D = {
 			isa = PBXGroup;
 			children = (
@@ -60,7 +77,7 @@
 			children = (
 				78E9B55B2975F4D70027533D /* AppDelegate.swift */,
 				78E9B55D2975F4D70027533D /* SceneDelegate.swift */,
-				78E9B55F2975F4D70027533D /* ViewController.swift */,
+				78E5AA012985813D00695C39 /* Controllers */,
 				78E9B5612975F4D70027533D /* Main.storyboard */,
 				788DA40429761CC000152C1E /* music.mp3 */,
 				78E9B5642975F4D80027533D /* Assets.xcassets */,
@@ -142,9 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78E5AA03298581E600695C39 /* ShopViewController.swift in Sources */,
 				78E9B5602975F4D70027533D /* ViewController.swift in Sources */,
+				78E5AA05298581F600695C39 /* InventoryViewController.swift in Sources */,
 				78E9B55C2975F4D70027533D /* AppDelegate.swift in Sources */,
 				78E9B55E2975F4D70027533D /* SceneDelegate.swift in Sources */,
+				78E5AA072985820500695C39 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
