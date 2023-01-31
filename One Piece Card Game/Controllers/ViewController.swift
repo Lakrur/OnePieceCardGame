@@ -70,6 +70,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        charachterCollection = charachterCollection + charachterCollection
+        charachterCollection = charachterCollection.shuffled()
+        
         // MARK: Menu
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
@@ -102,11 +105,11 @@ class ViewController: UIViewController {
     // MARK: Card Buttons
     @IBAction func buttonAction(_ sender: UIButton) {
         let buttonIndex = buttonCollection.firstIndex(of: sender)!
-        flipButton(charchter: (charachterCollection + charachterCollection)[buttonIndex], button: sender)
+        flipButton(charchter: (charachterCollection)[buttonIndex], button: sender)
         
         
         guard let flippedCharachter = flippedCharachter else {
-            flippedCharachter = ((charachterCollection + charachterCollection)[buttonIndex], sender)
+            flippedCharachter = ((charachterCollection)[buttonIndex], sender)
             return
         }
         
@@ -114,9 +117,10 @@ class ViewController: UIViewController {
             button.isEnabled = false
         }
         
-        if flippedCharachter.character.id == (charachterCollection + charachterCollection)[buttonIndex].id {
+        if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
             belly += 10
             charachterCollection.shuffle()
+            print(charachterCollection)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

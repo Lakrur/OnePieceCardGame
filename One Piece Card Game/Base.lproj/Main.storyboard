@@ -351,6 +351,22 @@
                             <rect key="frame" x="0.0" y="-47" width="390" height="844"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="t28-bM-0Hs">
+                                    <rect key="frame" x="-3" y="129" width="396" height="32"/>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <segments>
+                                        <segment title="Common"/>
+                                        <segment title="Uncommon"/>
+                                        <segment title="Rare"/>
+                                        <segment title="Epic"/>
+                                        <segment title="Legendary"/>
+                                    </segments>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="selectedSegmentTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <action selector="selectRarityCharachter:" destination="aHu-rP-wpV" eventType="valueChanged" id="s3D-RH-xsM"/>
+                                    </connections>
+                                </segmentedControl>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcj-sy-NAh">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="129"/>
                                     <subviews>
@@ -369,7 +385,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="og1-7j-iWm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="21"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -381,28 +397,15 @@
                                         <constraint firstAttribute="trailing" secondItem="joJ-KW-a2x" secondAttribute="trailing" constant="168" id="vqZ-98-8nw"/>
                                     </constraints>
                                 </view>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="t28-bM-0Hs">
-                                    <rect key="frame" x="0.0" y="137" width="390" height="32"/>
-                                    <segments>
-                                        <segment title="Common"/>
-                                        <segment title="Uncommon"/>
-                                        <segment title="Rare"/>
-                                        <segment title="Epic"/>
-                                        <segment title="Legendary"/>
-                                    </segments>
-                                    <connections>
-                                        <action selector="selectRarityCharachter:" destination="aHu-rP-wpV" eventType="valueChanged" id="s3D-RH-xsM"/>
-                                    </connections>
-                                </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="vcj-sy-NAh" secondAttribute="bottom" constant="715" id="3ZO-Ri-sX5"/>
                                 <constraint firstAttribute="trailing" secondItem="vcj-sy-NAh" secondAttribute="trailing" id="GYO-2M-uZG"/>
-                                <constraint firstItem="t28-bM-0Hs" firstAttribute="leading" secondItem="fvl-Ya-LIv" secondAttribute="leading" id="P7F-vb-Knj"/>
-                                <constraint firstItem="t28-bM-0Hs" firstAttribute="top" secondItem="vcj-sy-NAh" secondAttribute="bottom" constant="8" symbolic="YES" id="Z1i-Lg-meP"/>
+                                <constraint firstAttribute="trailing" secondItem="t28-bM-0Hs" secondAttribute="trailing" constant="-3" id="GiW-eo-ECc"/>
+                                <constraint firstItem="t28-bM-0Hs" firstAttribute="leading" secondItem="fvl-Ya-LIv" secondAttribute="leading" constant="-3" id="VoH-IX-dWY"/>
+                                <constraint firstItem="t28-bM-0Hs" firstAttribute="top" secondItem="vcj-sy-NAh" secondAttribute="bottom" id="Z1i-Lg-meP"/>
                                 <constraint firstItem="vcj-sy-NAh" firstAttribute="top" secondItem="fvl-Ya-LIv" secondAttribute="top" id="hIT-iq-q0C"/>
-                                <constraint firstAttribute="trailing" secondItem="t28-bM-0Hs" secondAttribute="trailing" id="nSU-ih-o5r"/>
                                 <constraint firstItem="vcj-sy-NAh" firstAttribute="leading" secondItem="fvl-Ya-LIv" secondAttribute="leading" id="xHq-E0-eMN"/>
                             </constraints>
                         </view>

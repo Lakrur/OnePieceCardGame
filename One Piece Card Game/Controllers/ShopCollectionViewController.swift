@@ -74,6 +74,15 @@ class ShopCollectionViewController: UICollectionViewController {
         collectionView.reloadData()
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allCharachtersShop.count
     }
