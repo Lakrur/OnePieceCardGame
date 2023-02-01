@@ -120,7 +120,6 @@ class ViewController: UIViewController {
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
             belly += 10
             charachterCollection.shuffle()
-            print(charachterCollection)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

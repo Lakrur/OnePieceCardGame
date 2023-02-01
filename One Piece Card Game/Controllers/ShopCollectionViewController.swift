@@ -12,6 +12,11 @@ private let reuseIdentifier = "ShopCell"
 class ShopCollectionViewController: UICollectionViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var rightSideAnchor: NSLayoutConstraint!
+    
     
     var commonCharachterShop: [ShopCharachter] = []
     var uncommonCharahterShop: [ShopCharachter] = []
@@ -36,7 +41,8 @@ class ShopCollectionViewController: UICollectionViewController {
     }
     
     var allCharachtersShop: [ShopCharachter] =
-    [ShopCharachter(id: 10, picture: "chopper", rarity: .uncommon, price: 200)]
+    [ShopCharachter(id: 10, picture: "chopper", rarity: .uncommon, price: 200),
+     ShopCharachter(id: 11, picture: "katakuri", rarity: .epic, price: 1000)]
     
     
     override func viewDidLoad() {
@@ -72,6 +78,16 @@ class ShopCollectionViewController: UICollectionViewController {
             break
         }
         collectionView.reloadData()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
+        infoView.addGestureRecognizer(tapGesture )
+    }
+    
+    @objc func tapGestureAction() {
+        rightSideAnchor.constant = -300
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override var shouldAutorotate: Bool {
@@ -95,6 +111,16 @@ class ShopCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailShopController = segue.destination as! DetailShopViewController
+        for charachter in allCharachtersShop {
+            detailShopController.imageReceived = charachter.picture
+            detailShopController.information = "\(charachter.picture) is the \(charachter.rarity) charachter. Its price is \(charachter.price) belly. When you find two identical pictures the charachter will bring \(2) belly."
+            detailShopController.buttonText = "\(charachter.price)"
+        }
+    }
+    
+    
     
     
     @IBAction func selectRarityCharachter(_ sender: UISegmentedControl) {
@@ -115,10 +141,21 @@ class ShopCollectionViewController: UICollectionViewController {
         }
         collectionView.reloadData()
     }
-        
-        
+    
+    
+    
+    @IBAction func infoButton(_ sender: UIButton) {
+    
+        rightSideAnchor.constant = 8
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        }
+    
         
         @IBAction func goBack(_ sender: Any) {
             dismiss(animated: true, completion: nil)
         }
     }
+
+

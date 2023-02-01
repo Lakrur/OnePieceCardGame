@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		788DA40529761CC000152C1E /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 788DA40429761CC000152C1E /* music.mp3 */; };
+		789296A92989C96A0053CE02 /* DetailShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789296A82989C96A0053CE02 /* DetailShopViewController.swift */; };
 		78D66884298848ED00AD521B /* ShopCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D66883298848ED00AD521B /* ShopCollectionViewController.swift */; };
 		78D668882988518B00AD521B /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D668872988518B00AD521B /* ShopCell.swift */; };
 		78E5AA05298581F600695C39 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5AA04298581F600695C39 /* InventoryViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		788DA40429761CC000152C1E /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music.mp3; sourceTree = SOURCE_ROOT; };
+		789296A82989C96A0053CE02 /* DetailShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailShopViewController.swift; sourceTree = "<group>"; };
 		78D66883298848ED00AD521B /* ShopCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewController.swift; sourceTree = "<group>"; };
 		78D668872988518B00AD521B /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		78E5AA04298581F600695C39 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				78E5AA062985820500695C39 /* SettingsViewController.swift */,
 				78D66883298848ED00AD521B /* ShopCollectionViewController.swift */,
 				78D668872988518B00AD521B /* ShopCell.swift */,
+				789296A82989C96A0053CE02 /* DetailShopViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				78D668882988518B00AD521B /* ShopCell.swift in Sources */,
 				78E5AA05298581F600695C39 /* InventoryViewController.swift in Sources */,
 				78E9B55C2975F4D70027533D /* AppDelegate.swift in Sources */,
+				789296A92989C96A0053CE02 /* DetailShopViewController.swift in Sources */,
 				78E9B55E2975F4D70027533D /* SceneDelegate.swift in Sources */,
 				78E5AA072985820500695C39 /* SettingsViewController.swift in Sources */,
 			);
