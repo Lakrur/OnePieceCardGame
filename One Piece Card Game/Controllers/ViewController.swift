@@ -9,29 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var flippedCharachter: (character: Charachter, button: UIButton)?
-    var belly = 0 {
-        didSet {
-            bellyCounter.text = ": \(belly)"
-        }
-    }
-    
-    struct Charachter {
-        var id: Int
-        var picture: UIImage
-    }
+    var flippedCharachter: (character: AllCharachter, button: UIButton)?
+   
     
     
-    var charachterCollection: [Charachter] =
-    [Charachter(id: 1, picture: UIImage(named: "babyLuffy")!),
-     Charachter(id: 2, picture: UIImage(named: "babyZoro")!),
-     Charachter(id: 3, picture: UIImage(named: "babyCoby")!),
-     Charachter(id: 4, picture: UIImage(named: "babyUsopp")!),
-     Charachter(id: 5, picture: UIImage(named: "alvida")!),
-     Charachter(id: 6, picture: UIImage(named: "buggy")!),
-     Charachter(id: 7, picture: UIImage(named: "helmeppo")!),
-     Charachter(id: 8, picture: UIImage(named: "morgan")!),
-     Charachter(id: 9, picture: UIImage(named: "nami1ep")!),].shuffled()
+    
+    var charachterCollection: [AllCharachter] = []
     
     // MARK: reset flipped card
     func resetCard() {
@@ -43,7 +26,7 @@ class ViewController: UIViewController {
     
     // MARK: func flip button
     
-    func flipButton(charchter: Charachter, button: UIButton) {
+    func flipButton(charchter: AllCharachter, button: UIButton) {
         
         if button.currentImage == charchter.picture {
             button.setImage(UIImage(named: "flag"), for: .normal)
@@ -70,8 +53,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        charachterCollection = charachterCollection + charachterCollection
-        charachterCollection = charachterCollection.shuffled()
+        allBelly = bellyCounter
+        
+        charachterCollection = availableCharachter + availableCharachter
+        availableCharachter = availableCharachter.shuffled()
         
         // MARK: Menu
         
@@ -118,7 +103,8 @@ class ViewController: UIViewController {
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
-            belly += 10
+            belly += 200
+            allBelly.text = ": \(belly)"
             charachterCollection.shuffle()
         }
         

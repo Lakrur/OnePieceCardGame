@@ -615,6 +615,9 @@
                                 <color key="backgroundColor" red="0.69912411600000002" green="0.76942896839999997" blue="0.44140405919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Buy it"/>
+                                <connections>
+                                    <action selector="buyButton:" destination="Bye-yd-GTc" eventType="touchUpInside" id="NbU-Ng-EP6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dod-kw-Igy"/>

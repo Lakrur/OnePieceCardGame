@@ -18,35 +18,20 @@ class ShopCollectionViewController: UICollectionViewController {
     @IBOutlet weak var rightSideAnchor: NSLayoutConstraint!
     
     
-    var commonCharachterShop: [ShopCharachter] = []
-    var uncommonCharahterShop: [ShopCharachter] = []
-    var rareCharachterShop: [ShopCharachter] = []
-    var epicCharachterShop: [ShopCharachter] = []
-    var legendaryCharachterShop: [ShopCharachter] = []
+    var commonCharachterShop: [AllCharachter] = []
+    var uncommonCharahterShop: [AllCharachter] = []
+    var rareCharachterShop: [AllCharachter] = []
+    var epicCharachterShop: [AllCharachter] = []
+    var legendaryCharachterShop: [AllCharachter] = []
     
-    struct ShopCharachter {
-        
-        var id: Int
-        var picture: String
-        var rarity: rarety
-        var price: Int
-    }
     
-    enum rarety {
-        case common
-        case uncommon
-        case rare
-        case epic
-        case legendary
-    }
-    
-    var allCharachtersShop: [ShopCharachter] =
-    [ShopCharachter(id: 10, picture: "chopper", rarity: .uncommon, price: 200),
-     ShopCharachter(id: 11, picture: "katakuri", rarity: .epic, price: 1000)]
+    var allCharachtersShop: [AllCharachter] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        allCharachtersShop = shopCharachters
         
         for charachter in allCharachtersShop {
             switch charachter.rarity {
@@ -106,7 +91,7 @@ class ShopCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ShopCell
         
-        cell.charachtersShopImageView.image = UIImage(named: allCharachtersShop[indexPath.row].picture)
+        cell.charachtersShopImageView.image = allCharachtersShop[indexPath.row].picture
         
         return cell
     }
@@ -115,7 +100,7 @@ class ShopCollectionViewController: UICollectionViewController {
         let detailShopController = segue.destination as! DetailShopViewController
         for charachter in allCharachtersShop {
             detailShopController.imageReceived = charachter.picture
-            detailShopController.information = "\(charachter.picture) is the \(charachter.rarity) charachter. Its price is \(charachter.price) belly. When you find two identical pictures the charachter will bring \(2) belly."
+            detailShopController.information = " is the \(charachter.rarity) charachter. Its price is \(charachter.price) belly. When you find two identical pictures the charachter will bring \(2) belly."
             detailShopController.buttonText = "\(charachter.price)"
         }
     }
