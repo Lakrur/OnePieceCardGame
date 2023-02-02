@@ -109,6 +109,10 @@ class ShopCollectionViewController: UIViewController {
            for charachter in allCharachtersShop {
                detailShopController.imageReceived = charachter.picture
                detailShopController.information = charachter.description
+               for charachter in allCharachtersShop {
+                   detailShopController.bringTextLabel = "Charachter will bring: \(charachter.rarity.bring) belly"
+                   detailShopController.coastTextLabel = "Charachter price: \(charachter.rarity.price) belly"
+               }
            }
        }
     }

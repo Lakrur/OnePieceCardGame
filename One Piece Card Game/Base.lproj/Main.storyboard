@@ -499,30 +499,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4th-Nm-Use">
-                                <rect key="frame" x="93" y="57" width="200" height="190"/>
+                                <rect key="frame" x="93" y="57" width="217" height="190"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="n74-2n-1K8"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Some Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Cw-1d-kxh">
-                                <rect key="frame" x="26" y="275" width="335" height="399"/>
+                                <rect key="frame" x="26" y="275" width="352" height="399"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="337" id="QrJ-jq-Ck4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sl7-EC-Kwj">
-                                <rect key="frame" x="160" y="728" width="67" height="34.333333333333371"/>
-                                <color key="backgroundColor" red="0.69912411600000002" green="0.76942896839999997" blue="0.44140405919999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="160" y="688.33333333333337" width="84" height="74"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Buy it"/>
+                                <buttonConfiguration key="configuration" style="plain" image="buyButton"/>
                                 <connections>
                                     <action selector="buyButton:" destination="Bye-yd-GTc" eventType="touchUpInside" id="NbU-Ng-EP6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Charachter will bring: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="21" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieD-gn-B5o">
+                                <rect key="frame" x="16" y="-31" width="106" height="190"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="18" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ap4-rm-udY">
+                                <rect key="frame" x="275" y="15" width="103" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dod-kw-Igy"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -539,7 +553,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bringLabel" destination="ieD-gn-B5o" id="Dgz-xE-UTZ"/>
                         <outlet property="butButton" destination="Sl7-EC-Kwj" id="acW-od-uxM"/>
+                        <outlet property="coastLabel" destination="Ap4-rm-udY" id="r7R-Og-Liq"/>
                         <outlet property="informationLabel" destination="8Cw-1d-kxh" id="Cih-61-eMz"/>
                         <outlet property="passedImageView" destination="4th-Nm-Use" id="UgZ-K3-NAQ"/>
                     </connections>
@@ -651,6 +667,7 @@
     <resources>
         <image name="backButton" width="50" height="50"/>
         <image name="belly" width="10" height="16"/>
+        <image name="buyButton" width="60" height="60"/>
         <image name="flag" width="99.5" height="100"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="inventory" width="50" height="47.5"/>
