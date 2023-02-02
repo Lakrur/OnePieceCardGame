@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
-            belly += 200
+            belly += 10
             allBelly.text = ": \(belly)"
             charachterCollection.shuffle()
         }

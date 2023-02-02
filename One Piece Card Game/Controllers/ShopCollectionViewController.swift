@@ -9,14 +9,14 @@ import UIKit
 
 private let reuseIdentifier = "ShopCell"
 
-class ShopCollectionViewController: UICollectionViewController {
+class ShopCollectionViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var rightSideAnchor: NSLayoutConstraint!
-    
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var commonCharachterShop: [AllCharachter] = []
     var uncommonCharahterShop: [AllCharachter] = []
@@ -30,6 +30,9 @@ class ShopCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         allCharachtersShop = shopCharachters
         
@@ -84,28 +87,31 @@ class ShopCollectionViewController: UICollectionViewController {
     }
     
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allCharachtersShop.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ShopCell
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCell
         
         cell.charachtersShopImageView.image = allCharachtersShop[indexPath.row].picture
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailShopController = segue.destination as! DetailShopViewController
-        for charachter in allCharachtersShop {
-            detailShopController.imageReceived = charachter.picture
-            detailShopController.information = " is the \(charachter.rarity) charachter. Its price is \(charachter.price) belly. When you find two identical pictures the charachter will bring \(2) belly."
-            detailShopController.buttonText = "\(charachter.price)"
-        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       performSegue(withIdentifier: "showDetail", sender: nil)
     }
-    
-    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if segue.identifier == "showDetail" {
+          let detailShopController = segue.destination as! DetailShopViewController
+           for charachter in allCharachtersShop {
+               detailShopController.imageReceived = charachter.picture
+               detailShopController.information = charachter.description
+           }
+       }
+    }
     
     
     @IBAction func selectRarityCharachter(_ sender: UISegmentedControl) {
@@ -144,3 +150,7 @@ class ShopCollectionViewController: UICollectionViewController {
     }
 
 
+extension ShopCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+}
