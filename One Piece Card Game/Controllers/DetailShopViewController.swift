@@ -22,7 +22,6 @@ class DetailShopViewController: UIViewController {
     var bringTextLabel = String()
     var coastTextLabel = String()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         passedImageView.image = imageReceived
@@ -32,32 +31,32 @@ class DetailShopViewController: UIViewController {
         coastLabel.text = "\(coastTextLabel)"
     }
     
-    
-    @IBAction func buyButton(_ sender: Any) {
-        for charachter in shopCharachters {
-            if belly >= charachter.rarity.price {
-                belly -= charachter.rarity.price
-                allBelly.text = "\(belly)"
-                
-                availableCharachter.append(charachter)
-                
-                let allert = UIAlertController(title: "Congratulations!", message: "You bought this charachter, now you can meet him in the game.", preferredStyle: .alert)
-                let okAllertAction = UIAlertAction(title: "Ok", style: .default)
-                
-                allert.addAction(okAllertAction)
-                present(allert, animated: true)
-                
-                
-                butButton.isHidden = true
-                
-            } else {
-                let noAllert = UIAlertController(title: "Error", message: "You don't have enough money.", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .default)
-                
-                noAllert.addAction(okAction)
-                present(noAllert, animated: true)
-            }
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    @IBAction func buyButton(_ sender: Any) {
+        if let index = shopCharachters.firstIndex(where: { $0.picture == imageReceived && !$0.isPurchased }) {
+            if belly >= shopCharachters[index].rarity.price {
+                belly -= shopCharachters[index].rarity.price
+                allBelly.text = "\(belly)"
+                availableCharachter.append(shopCharachters[index])
+                shopCharachters[index].isPurchased = true
+                print(availableCharachter)
+                
+                showAlert(title: "Congratulations!", message: "You bought this charachter, now you can meet him in the game.")
+            } else {
+                showAlert(title: "Error", message: "You don't have enough money.")
+            }
+        } else {
+            showAlert(title: "Error", message: "This charachter is already bought.")
+        }
+    }
 }

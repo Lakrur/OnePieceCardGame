@@ -10,10 +10,6 @@ import UIKit
 class ViewController: UIViewController {
 
     var flippedCharachter: (character: AllCharachter, button: UIButton)?
-   
-    
-    
-    
     var charachterCollection: [AllCharachter] = []
     
     // MARK: reset flipped card
@@ -64,6 +60,12 @@ class ViewController: UIViewController {
         rightSideMenu.addGestureRecognizer(tapGesture )
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        charachterCollection = availableCharachter + availableCharachter
+            availableCharachter = availableCharachter.shuffled()
+    }
+    
     
     @objc func tapGestureAction() {
         leftSideMenuLeadingAnchor.constant = -300
@@ -103,8 +105,22 @@ class ViewController: UIViewController {
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
-            belly += 10
-            allBelly.text = ": \(belly)"
+            if rarety.common == rarety.common  {
+                belly += 10000
+                allBelly.text = ": \(belly)"
+            } else if rarety.uncommon == rarety.uncommon {
+                belly += 12
+                allBelly.text = ": \(belly)"
+            } else if rarety.rare == rarety.rare {
+                belly += 15
+                allBelly.text = ": \(belly)"
+            } else if rarety.epic == rarety.epic {
+                belly += 20
+                allBelly.text = ": \(belly)"
+            } else if rarety.legendary == rarety.legendary {
+                belly += 30
+                allBelly.text = ": \(belly)"
+            }
             charachterCollection.shuffle()
         }
         
