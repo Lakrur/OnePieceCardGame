@@ -49,7 +49,6 @@ class DetailShopViewController: UIViewController {
                 allBelly.text = "\(belly)"
                 availableCharachter.append(shopCharachters[index])
                 shopCharachters[index].isPurchased = true
-                print(availableCharachter)
                 
                 showAlert(title: "Congratulations!", message: "You bought this charachter, now you can meet him in the game.")
             } else {

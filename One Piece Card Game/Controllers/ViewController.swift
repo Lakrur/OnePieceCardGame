@@ -105,17 +105,7 @@ class ViewController: UIViewController {
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
-            if flippedCharachter.character.rarity == .common {
-                belly += flippedCharachter.character.rarity.bring
-            } else if flippedCharachter.character.rarity == .uncommon {
-                belly += flippedCharachter.character.rarity.bring
-            } else if flippedCharachter.character.rarity == .rare {
-                belly += flippedCharachter.character.rarity.bring
-            } else if flippedCharachter.character.rarity == .epic {
-                belly += flippedCharachter.character.rarity.bring
-            } else if flippedCharachter.character.rarity == .legendary {
-                belly += flippedCharachter.character.rarity.bring
-            }
+            belly += flippedCharachter.character.rarity.bring
             allBelly.text = ": \(belly)"
             charachterCollection.shuffle()
         }
