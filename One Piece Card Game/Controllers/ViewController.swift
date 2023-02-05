@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
     var flippedCharachter: (character: AllCharachter, button: UIButton)?
     var charachterCollection: [AllCharachter] = []
-    
+
     // MARK: reset flipped card
     func resetCard() {
         for button in buttonCollection {
@@ -44,6 +45,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftSideMenu: UIView!
     @IBOutlet weak var leftSideMenuLeadingAnchor: NSLayoutConstraint!
     
+    // MARK: viewDidAppear
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        charachterCollection = availableCharachter + availableCharachter
+            availableCharachter = availableCharachter.shuffled()
+    }
+
+    
     // MARK: func viewDidLoad
     
     override func viewDidLoad() {
@@ -54,16 +64,11 @@ class ViewController: UIViewController {
         charachterCollection = availableCharachter + availableCharachter
         availableCharachter = availableCharachter.shuffled()
         
+        
         // MARK: Menu
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
         rightSideMenu.addGestureRecognizer(tapGesture )
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        charachterCollection = availableCharachter + availableCharachter
-            availableCharachter = availableCharachter.shuffled()
     }
     
     
@@ -93,7 +98,7 @@ class ViewController: UIViewController {
     @IBAction func buttonAction(_ sender: UIButton) {
         let buttonIndex = buttonCollection.firstIndex(of: sender)!
         flipButton(charchter: (charachterCollection)[buttonIndex], button: sender)
-        
+        playSound(key: "flip")
         
         guard let flippedCharachter = flippedCharachter else {
             flippedCharachter = ((charachterCollection)[buttonIndex], sender)
@@ -105,6 +110,7 @@ class ViewController: UIViewController {
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
+            playSound(key: "match")
             belly += flippedCharachter.character.rarity.bring
             allBelly.text = ": \(belly)"
             charachterCollection.shuffle()
@@ -125,6 +131,7 @@ class ViewController: UIViewController {
     // MARK: Menu Button Action
     
     @IBAction func menuButtonAction(_ sender: Any) {
+        playSound(key: "menu")
         leftSideMenuLeadingAnchor.constant = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()

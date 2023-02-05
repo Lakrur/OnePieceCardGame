@@ -106,9 +106,9 @@ class ShopCollectionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        if segue.identifier == "showDetail" {
           let detailShopController = segue.destination as! DetailShopViewController
-           for charachter in allCharachtersShop {
-               detailShopController.imageReceived = charachter.picture
-               detailShopController.information = charachter.description
+               if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+                   detailShopController.imageReceived = allCharachtersShop[selectedIndexPath.row].picture
+                   detailShopController.information = allCharachtersShop[selectedIndexPath.row].description
                for charachter in allCharachtersShop {
                    detailShopController.bringTextLabel = "Charachter will bring: \(charachter.rarity.bring) belly"
                    detailShopController.coastTextLabel = "Charachter price: \(charachter.rarity.price) belly"

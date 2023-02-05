@@ -31,15 +31,12 @@ class DetailShopViewController: UIViewController {
         coastLabel.text = "\(coastTextLabel)"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-    }
-    
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
+        playSound(key: "error")
     }
     
     @IBAction func buyButton(_ sender: Any) {

@@ -9,10 +9,21 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    
+    
+    @IBOutlet var audioLabels: [UILabel]!
+    @IBOutlet weak var musicSlider: UISlider!
+    @IBOutlet weak var soundSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        soundSlider.minimumTrackTintColor = UIColor(named: "SliderMin")
+        musicSlider.minimumTrackTintColor = UIColor(named: "SliderMin")
+        soundSlider.maximumTrackTintColor = UIColor(named: "SliderMax")
+        musicSlider.maximumTrackTintColor = UIColor(named: "SliderMax")
+        soundSlider.setThumbImage(UIImage(named: "den-den(on)"), for: .normal)
+        musicSlider.setThumbImage(UIImage(named: "den-den(on)"), for: .normal)
     }
     
     override var shouldAutorotate: Bool {
@@ -29,4 +40,16 @@ class SettingsViewController: UIViewController {
     }
     
 
+    @IBAction func soundAction(_ sender: Any) {
+        player.volume = soundSlider.value
+    }
+    
+    
+}
+
+class CustomSlider: UISlider {
+    override func trackRect(forBounds bounds: CGRect) -> CGRect {
+         let point = CGPoint(x: bounds.minX, y: bounds.midY)
+         return CGRect(origin: point, size: CGSize(width: bounds.width, height: 20))
+     }
 }
