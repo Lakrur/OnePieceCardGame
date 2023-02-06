@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     var flippedCharachter: (character: AllCharachter, button: UIButton)?
     var charachterCollection: [AllCharachter] = []
-
+    
     // MARK: reset flipped card
     func resetCard() {
         for button in buttonCollection {
@@ -49,20 +49,20 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        charachterCollection = availableCharachter + availableCharachter
-            availableCharachter = availableCharachter.shuffled()
+        
+        var tempArray = availableCharachter.shuffled()
+        var slicedTempArray = tempArray[0...8].shuffled()
+        charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
     }
 
     
     // MARK: func viewDidLoad
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         allBelly = bellyCounter
-        
-        charachterCollection = availableCharachter + availableCharachter
-        availableCharachter = availableCharachter.shuffled()
         
         
         // MARK: Menu
@@ -87,10 +87,11 @@ class ViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return false
     }
-    
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
+        return UIInterfaceOrientationMask.portrait
     }
+
     
     
     
@@ -107,6 +108,7 @@ class ViewController: UIViewController {
         
         for button in buttonCollection {
             button.isEnabled = false
+            button.isExclusiveTouch = true
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
@@ -121,10 +123,10 @@ class ViewController: UIViewController {
             self.resetCard()
             UIView.transition(with:  flippedCharachter.button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
             UIView.transition(with:  sender, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: { _ in
-                for button in self.buttonCollection {
-                    button.isEnabled = true
-                }
             })
+            for button in self.buttonCollection {
+                button.isEnabled = true
+            }
         }
     }
     
