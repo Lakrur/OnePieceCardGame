@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class DetailShopViewController: UIViewController {
     
@@ -22,13 +23,15 @@ class DetailShopViewController: UIViewController {
     var bringTextLabel = String()
     var coastTextLabel = String()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         passedImageView.image = imageReceived
         informationLabel.text = "\(information)"
         informationLabel.numberOfLines = 0
-        bringLabel.text = "\(bringTextLabel)"
-        coastLabel.text = "\(coastTextLabel)"
+        bringLabel.text = "Charachter will bring: \(formatNumber(number: Int(bringTextLabel)!)) belly"
+        coastLabel.text = "Charachter price: \(formatNumber(number: Int(coastTextLabel)!)) belly"
     }
     
     func showAlert(title: String, message: String) {
@@ -36,14 +39,15 @@ class DetailShopViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
-        playSound(key: "error")
+        let sound = Singleton.shared
+        sound.playSound(key: "error")
     }
     
     @IBAction func buyButton(_ sender: Any) {
         if let index = shopCharachters.firstIndex(where: { $0.picture == imageReceived && !$0.isPurchased }) {
             if belly >= shopCharachters[index].rarity.price {
                 belly -= shopCharachters[index].rarity.price
-                allBelly.text = "\(belly)"
+                allBelly.text = "\(formatNumber(number: belly))"
                 availableCharachter.append(shopCharachters[index])
                 shopCharachters[index].isPurchased = true
                 

@@ -110,8 +110,8 @@ class ShopCollectionViewController: UIViewController {
                    detailShopController.imageReceived = allCharachtersShop[selectedIndexPath.row].picture
                    detailShopController.information = allCharachtersShop[selectedIndexPath.row].description
                for charachter in allCharachtersShop {
-                   detailShopController.bringTextLabel = "Charachter will bring: \(charachter.rarity.bring) belly"
-                   detailShopController.coastTextLabel = "Charachter price: \(charachter.rarity.price) belly"
+                   detailShopController.bringTextLabel = "\(charachter.rarity.bring)"
+                   detailShopController.coastTextLabel = "\(charachter.rarity.price)"
                }
            }
        }

@@ -50,8 +50,8 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        var tempArray = availableCharachter.shuffled()
-        var slicedTempArray = tempArray[0...8].shuffled()
+        let tempArray = availableCharachter.shuffled()
+        let slicedTempArray = tempArray[0...8].shuffled()
         charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
     }
 
@@ -99,7 +99,8 @@ class ViewController: UIViewController {
     @IBAction func buttonAction(_ sender: UIButton) {
         let buttonIndex = buttonCollection.firstIndex(of: sender)!
         flipButton(charchter: (charachterCollection)[buttonIndex], button: sender)
-        playSound(key: "flip")
+        let sound = Singleton.shared
+        sound.playSound(key: "flip")
         
         guard let flippedCharachter = flippedCharachter else {
             flippedCharachter = ((charachterCollection)[buttonIndex], sender)
@@ -112,9 +113,10 @@ class ViewController: UIViewController {
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
-            playSound(key: "match")
+            let sound = Singleton.shared
+            sound.playSound(key: "match")
             belly += flippedCharachter.character.rarity.bring
-            allBelly.text = ": \(belly)"
+            allBelly.text = ": \(formatNumber(number: belly))"
             charachterCollection.shuffle()
         }
         
@@ -133,7 +135,8 @@ class ViewController: UIViewController {
     // MARK: Menu Button Action
     
     @IBAction func menuButtonAction(_ sender: Any) {
-        playSound(key: "menu")
+        let sound = Singleton.shared
+        sound.playSound(key: "menu")
         leftSideMenuLeadingAnchor.constant = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()

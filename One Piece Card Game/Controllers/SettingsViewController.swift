@@ -41,7 +41,9 @@ class SettingsViewController: UIViewController {
     
 
     @IBAction func soundAction(_ sender: Any) {
-        player.volume = soundSlider.value
+        let sound = Singleton.shared
+        sound.player.volume = soundSlider.value
+        
     }
     
     

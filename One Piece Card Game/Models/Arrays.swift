@@ -9,7 +9,7 @@ import UIKit
 
 
 var availableCharachter: [AllCharachter] =
-[AllCharachter(id: 1, picture: UIImage(named: "babyLuffy")!, rarity: .epic, description: "luffy", isPurchased: true),
+[AllCharachter(id: 1, picture: UIImage(named: "babyLuffy")!, rarity: .common, description: "luffy", isPurchased: true),
  AllCharachter(id: 2, picture: UIImage(named: "babyZoro")!, rarity: .common, description: "zoro", isPurchased: true),
  AllCharachter(id: 3, picture: UIImage(named: "babyCoby")!, rarity: .common, description: "coby", isPurchased: true),
  AllCharachter(id: 4, picture: UIImage(named: "babyUsopp")!, rarity: .common, description: "usopp", isPurchased: true),

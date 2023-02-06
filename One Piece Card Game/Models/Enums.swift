@@ -17,29 +17,29 @@ enum rarety {
     var price: Int {
         switch self {
         case .common:
-            return 150
+            return 5000
         case .uncommon:
-            return 300
+            return 25_000
         case .rare:
-            return 1200
+            return 60000
         case .epic:
-            return 3000
+            return 350_000
         case .legendary:
-            return 6000
+            return 1_000_000
         }
     }
     var bring: Int {
         switch self {
         case .common:
-            return 10
+            return 500
         case .uncommon:
-            return 12
+            return 1000
         case .rare:
-            return 15
+            return 3000
         case .epic:
-            return 20
+            return 9000
         case .legendary:
-            return 30
+            return 25_000
         }
     }
 }
