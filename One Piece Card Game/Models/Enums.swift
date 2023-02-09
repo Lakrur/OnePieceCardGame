@@ -44,5 +44,3 @@ enum rarety {
     }
 }
 
-
-

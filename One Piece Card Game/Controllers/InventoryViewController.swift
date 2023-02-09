@@ -15,9 +15,13 @@ class InventoryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var purchasedCharachters: [AllCharachter] = []
+    var purchasedFlags: [AllFlags] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         let selectedInventoryCell = segmentedControl.selectedSegmentIndex
         switch selectedInventoryCell {
@@ -25,21 +29,16 @@ class InventoryViewController: UIViewController {
             purchasedCharachters = availableCharachter
             print("Charachters")
         case 1:
-            print("Flags")
-        case 2:
-            print("Backgrounds")
+            purchasedFlags = availableFlags
         default:
             break
             
         }
         collectionView.reloadData()
 
+        purchasedFlags = availableFlags
         purchasedCharachters = availableCharachter
-        for charachter in purchasedCharachters {
-            if charachter.isPurchased == true {
-                purchasedCharachters.append(charachter)
-            }
-        }
+       
         
     }
     
@@ -52,13 +51,14 @@ class InventoryViewController: UIViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return purchasedCharachters.count
+        return purchasedCharachters.count
    }
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InventoryCell", for: indexPath) as! InventoryCell
        
         cell.inventoryImageView.image = purchasedCharachters[indexPath.row].picture
+        
        
        return cell
    }
@@ -71,6 +71,7 @@ class InventoryViewController: UIViewController {
             purchasedCharachters = availableCharachter
             print("Charachters")
         case 1:
+            purchasedFlags = availableFlags
             print("Flags")
         case 2:
             print("Backgrounds")
@@ -84,5 +85,10 @@ class InventoryViewController: UIViewController {
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+}
+
+extension InventoryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     
 }

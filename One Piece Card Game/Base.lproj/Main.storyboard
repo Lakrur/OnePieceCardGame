@@ -528,7 +528,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDR-a8-hOa">
                                         <rect key="frame" x="169" y="69" width="53" height="21"/>
                                         <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="21"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -553,6 +553,9 @@
                                     <segment title="Backgrounds"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="decorationPicker:" destination="PRT-2H-ggd" eventType="valueChanged" id="WaN-9s-4Yr"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GPr-5v-e3W">
                                 <rect key="frame" x="0.0" y="159" width="390" height="685"/>
@@ -564,26 +567,26 @@
                                     <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DecorationCell" id="z7G-Lt-zfv" customClass="DecorationCell" customModule="One_Piece_Card_Game" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DecorationShopCell" id="z7G-Lt-zfv" customClass="DecorationCell" customModule="One_Piece_Card_Game" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Ib-G3-9fr">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dtZ-bm-8s5">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ro-6Q-ABU">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="dtZ-bm-8s5" secondAttribute="bottom" id="2m7-vx-lCL"/>
-                                                <constraint firstItem="dtZ-bm-8s5" firstAttribute="leading" secondItem="1Ib-G3-9fr" secondAttribute="leading" id="9hG-Re-fbY"/>
-                                                <constraint firstItem="dtZ-bm-8s5" firstAttribute="top" secondItem="1Ib-G3-9fr" secondAttribute="top" id="Gqs-ek-uxk"/>
-                                                <constraint firstAttribute="trailing" secondItem="dtZ-bm-8s5" secondAttribute="trailing" id="f65-pc-hCy"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Ro-6Q-ABU" secondAttribute="trailing" id="9tN-hV-KK0"/>
+                                                <constraint firstAttribute="bottom" secondItem="5Ro-6Q-ABU" secondAttribute="bottom" id="Cqf-uy-PJt"/>
+                                                <constraint firstItem="5Ro-6Q-ABU" firstAttribute="leading" secondItem="1Ib-G3-9fr" secondAttribute="leading" id="U0D-dA-PRK"/>
+                                                <constraint firstItem="5Ro-6Q-ABU" firstAttribute="top" secondItem="1Ib-G3-9fr" secondAttribute="top" id="gSl-Ba-7sd"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="decorationShopImageView" destination="dtZ-bm-8s5" id="j5e-8j-CKY"/>
+                                            <outlet property="decorationImageView" destination="5Ro-6Q-ABU" id="31X-hP-gBC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -604,6 +607,10 @@
                             <constraint firstItem="h6z-tL-XLs" firstAttribute="trailing" secondItem="OPf-sI-Cdw" secondAttribute="trailing" id="mmS-2t-i3W"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="GPr-5v-e3W" id="ia4-Dq-dc1"/>
+                        <outlet property="segmentedControl" destination="R45-UJ-HLN" id="BxG-xm-1Ww"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Et9-1e-Us0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

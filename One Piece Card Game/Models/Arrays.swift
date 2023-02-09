@@ -7,6 +7,12 @@
 
 import UIKit
 
+var availableFlags: [AllFlags] =
+[AllFlags(picture: UIImage(named: "flag")!, description: "Mugiwara Flag", isPurchased: true)]
+
+var shopFlags: [AllFlags] =
+[AllFlags(picture: UIImage(named: "flagWhiteBeard")!, description: "WhiteBeard Flag", isPurchased: false)]
+
 
 var availableCharachter: [AllCharachter] =
 [AllCharachter(id: 1, picture: UIImage(named: "babyLuffy")!, rarity: .common, description: "luffy", isPurchased: true),
@@ -17,7 +23,7 @@ var availableCharachter: [AllCharachter] =
  AllCharachter(id: 6, picture: UIImage(named: "buggy")!, rarity: .common, description: "buggy", isPurchased: true),
  AllCharachter(id: 7, picture: UIImage(named: "helmeppo")!, rarity: .common, description: "helmepo", isPurchased: true),
  AllCharachter(id: 8, picture: UIImage(named: "morgan")!, rarity: .common, description: "morgan", isPurchased: true),
- AllCharachter(id: 9, picture: UIImage(named: "nami1ep")!, rarity: .common, description: "nami", isPurchased: true)].shuffled()
+ AllCharachter(id: 9, picture: UIImage(named: "nami1ep")!, rarity: .common, description: "nami", isPurchased: true)]
 
 var shopCharachters: [AllCharachter] =
 [AllCharachter(id: 10, picture: UIImage(named: "chopper")!, rarity: .uncommon, description: "Tony Tony the Chopper (a.k.a. Sweet Cotton Candy Lover) is a pirate and doctor on the Straw Hat Pirates. Chopper is a reindeer who ate the Devil's Fruit of Hito Hito no Mi. He was born on Drum Island, where he gained his outstanding knowledge of medicine. Drum Island is on the Grand Line, making Chopper the first member of Team Muguivar to be born on the Grand Line. He is the sixth member of the team and the fifth to join Luffy, as well as the youngest member aboard the ship. His first bounty was a 50 belly. Like any decent, normal doctor, Chopper uses his knowledge of medicine for the benefit of the people around him or those he does not know at all. However, as a doctor aboard the Straw Hat Pirates' ship, his duties are not limited to medical care.", isPurchased: false),

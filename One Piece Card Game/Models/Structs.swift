@@ -15,3 +15,11 @@ struct AllCharachter {
     var description: String
     var isPurchased = false
 }
+
+struct AllFlags {
+
+    var picture: UIImage
+    var description: String
+    var isPurchased = false
+    
+}
