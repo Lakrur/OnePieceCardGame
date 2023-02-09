@@ -17,7 +17,15 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let sound = AudioService.shared
+        let userDefaults = UserDefaults.standard
+        soundSlider.value = userDefaults.float(forKey: "playerVolume")
+        sound.player.volume = userDefaults.float(forKey: "playerVolume")
+        print(userDefaults.float(forKey: "playerVolume"))
+        
+        sound.player.volume = soundSlider.value
+        
         soundSlider.minimumTrackTintColor = UIColor(named: "SliderMin")
         musicSlider.minimumTrackTintColor = UIColor(named: "SliderMin")
         soundSlider.maximumTrackTintColor = UIColor(named: "SliderMax")
@@ -39,15 +47,22 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-
-    @IBAction func soundAction(_ sender: Any) {
-        let sound = Singleton.shared
-        sound.player.volume = soundSlider.value
+    
+    @IBAction func soundAction(_ sender: UISlider) {
+        let sound = AudioService.shared
+        let userDefaults = UserDefaults.standard
         
+        sound.player.volume = sender.value
+        //print(sound.player.volume)
+        
+        userDefaults.set(soundSlider.value, forKey: "soundVolume")
+        userDefaults.set(sound.player.volume, forKey: "playerVolume")
+        
+        userDefaults.synchronize()
     }
-    
-    
 }
+
+
 
 class CustomSlider: UISlider {
     override func trackRect(forBounds bounds: CGRect) -> CGRect {

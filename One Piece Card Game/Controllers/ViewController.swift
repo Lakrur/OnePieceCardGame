@@ -99,7 +99,7 @@ class ViewController: UIViewController {
     @IBAction func buttonAction(_ sender: UIButton) {
         let buttonIndex = buttonCollection.firstIndex(of: sender)!
         flipButton(charchter: (charachterCollection)[buttonIndex], button: sender)
-        let sound = Singleton.shared
+        let sound = AudioService.shared
         sound.playSound(key: "flip")
         
         guard let flippedCharachter = flippedCharachter else {
@@ -113,7 +113,7 @@ class ViewController: UIViewController {
         }
         
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
-            let sound = Singleton.shared
+            let sound = AudioService.shared
             sound.playSound(key: "match")
             belly += flippedCharachter.character.rarity.bring
             allBelly.text = ": \(formatNumber(number: belly))"
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
     // MARK: Menu Button Action
     
     @IBAction func menuButtonAction(_ sender: Any) {
-        let sound = Singleton.shared
+        let sound = AudioService.shared
         sound.playSound(key: "menu")
         leftSideMenuLeadingAnchor.constant = 0
         UIView.animate(withDuration: 0.3, animations: {

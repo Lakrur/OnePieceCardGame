@@ -39,7 +39,7 @@ class DetailShopViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
         present(alert, animated: true)
-        let sound = Singleton.shared
+        let sound = AudioService.shared
         sound.playSound(key: "error")
     }
     

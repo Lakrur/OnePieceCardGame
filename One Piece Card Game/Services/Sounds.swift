@@ -8,18 +8,18 @@
 import UIKit
 import AVFoundation
 
-final class Singleton {
+final class AudioService {
     
     
-    static let shared = Singleton()
-    var player: AVAudioPlayer!
+    static let shared = AudioService()
+    var player = AVAudioPlayer()
     
     func playSound(key: String) {
         let url = Bundle.main.url(forResource: key, withExtension: "mp3")
         
         do {
             player = try AVAudioPlayer(contentsOf: url!)
-            player?.play()
+            player.play()
         } catch {
             print("error")
         }
