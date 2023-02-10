@@ -51,14 +51,27 @@ class InventoryViewController: UIViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return purchasedCharachters.count
+        switch segmentedControl.selectedSegmentIndex {
+            case 0:
+                return purchasedCharachters.count
+            case 1:
+                return purchasedFlags.count
+            default:
+                return 0
+            }
    }
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InventoryCell", for: indexPath) as! InventoryCell
-       
-        cell.inventoryImageView.image = purchasedCharachters[indexPath.row].picture
         
+        switch segmentedControl.selectedSegmentIndex {
+           case 0:
+               cell.inventoryImageView.image = purchasedCharachters[indexPath.row].picture
+           case 1:
+            cell.inventoryImageView.image = purchasedFlags[indexPath.row].picture
+           default:
+               print("error")
+           }
        
        return cell
    }

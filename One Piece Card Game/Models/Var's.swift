@@ -8,6 +8,6 @@
 
 import UIKit
 
-var belly = 10000
+var belly = 0
 weak var allBelly: UILabel!
 
