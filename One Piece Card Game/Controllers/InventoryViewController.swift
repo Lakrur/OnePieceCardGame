@@ -16,6 +16,7 @@ class InventoryViewController: UIViewController {
     
     var purchasedCharachters: [AllCharachter] = []
     var purchasedFlags: [AllFlags] = []
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +76,24 @@ class InventoryViewController: UIViewController {
        
        return cell
    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "inventorySegue" {
+            let inventoryEquipViewController = segue.destination as! InventoryEquipViewController
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+                switch segmentedControl.selectedSegmentIndex {
+                case 0:
+                    print("charachters")
+                case 1:
+                    inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
+                    inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description
+                default:
+                    print("error")
+                }
+            }
+            
+        }
+    }
     
     
     @IBAction func inventoryPicker(_ sender: Any) {

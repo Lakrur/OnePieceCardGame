@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     // MARK: reset flipped card
     func resetCard() {
         for button in buttonCollection {
-            button.setImage(availableFlags[flagIndex].picture, for: .normal)
+            button.setImage(currentlyUsedFlag[flagIndex].picture, for: .normal)
             button.isEnabled = true
         }
     }
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     func flipButton(charchter: AllCharachter, button: UIButton) {
         
         if button.currentImage == charchter.picture {
-            button.setImage(availableFlags[flagIndex].picture, for: .normal)
+            button.setImage(currentlyUsedFlag[flagIndex].picture, for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
             button.isEnabled = true
         } else {

@@ -7,6 +7,9 @@
 
 import UIKit
 
+var currentlyUsedFlag: [AllFlags] =
+[AllFlags(picture: UIImage(named: "flag")!, description: "Mugiwara Flag", isPurchased: true, price: 0)]
+
 var availableFlags: [AllFlags] =
 [AllFlags(picture: UIImage(named: "flag")!, description: "Mugiwara Flag", isPurchased: true, price: 0)]
 
