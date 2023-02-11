@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		785184FC2996E2F000E316E9 /* DecorDetailShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785184FB2996E2F000E316E9 /* DecorDetailShopViewController.swift */; };
 		789296A92989C96A0053CE02 /* DetailShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789296A82989C96A0053CE02 /* DetailShopViewController.swift */; };
 		7895825E298BF33A00E12A54 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895825D298BF33A00E12A54 /* Structs.swift */; };
 		78958260298BF34E00E12A54 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895825F298BF34E00E12A54 /* Enums.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		785184FB2996E2F000E316E9 /* DecorDetailShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorDetailShopViewController.swift; sourceTree = "<group>"; };
 		789296A82989C96A0053CE02 /* DetailShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailShopViewController.swift; sourceTree = "<group>"; };
 		7895825D298BF33A00E12A54 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		7895825F298BF34E00E12A54 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				78D66883298848ED00AD521B /* ShopCollectionViewController.swift */,
 				789296A82989C96A0053CE02 /* DetailShopViewController.swift */,
 				789582A929956E0100E12A54 /* DecorationShopViewController.swift */,
+				785184FB2996E2F000E316E9 /* DecorDetailShopViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				789582AA29956E0100E12A54 /* DecorationShopViewController.swift in Sources */,
 				78E9B55C2975F4D70027533D /* AppDelegate.swift in Sources */,
 				789296A92989C96A0053CE02 /* DetailShopViewController.swift in Sources */,
+				785184FC2996E2F000E316E9 /* DecorDetailShopViewController.swift in Sources */,
 				78E9B55E2975F4D70027533D /* SceneDelegate.swift in Sources */,
 				7895827F2991BF4B00E12A54 /* Func's.swift in Sources */,
 				78958278298F376900E12A54 /* Arrays.swift in Sources */,

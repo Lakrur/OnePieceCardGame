@@ -21,5 +21,6 @@ struct AllFlags {
     var picture: UIImage
     var description: String
     var isPurchased = false
+    var price = 350_000
     
 }

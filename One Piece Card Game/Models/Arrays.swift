@@ -8,10 +8,16 @@
 import UIKit
 
 var availableFlags: [AllFlags] =
-[AllFlags(picture: UIImage(named: "flag")!, description: "Mugiwara Flag", isPurchased: true)]
+[AllFlags(picture: UIImage(named: "flag")!, description: "Mugiwara Flag", isPurchased: true, price: 0)]
 
 var shopFlags: [AllFlags] =
-[AllFlags(picture: UIImage(named: "flagWhiteBeard")!, description: "WhiteBeard Flag", isPurchased: false)]
+[AllFlags(picture: UIImage(named: "flagWhiteBeard")!, description: "WhiteBeard Flag", isPurchased: false),
+AllFlags(picture: UIImage(named: "flagShanks")!, description: "Red Hair Shanks Flag", isPurchased: false),
+AllFlags(picture: UIImage(named: "flagBlackBeard")!, description: "Black Beard Flag", isPurchased: false),
+AllFlags(picture: UIImage(named: "flagKaido")!, description: "Kaido Flag", isPurchased: false),
+AllFlags(picture: UIImage(named: "flagBuggy")!, description: "Clown Buggy Flag", isPurchased: false),
+AllFlags(picture: UIImage(named: "flagLaw")!, description: "Heart Pirate Flag", isPurchased: false),
+AllFlags(picture: UIImage(named: "flagKid")!, description: "Captain Kid Flag", isPurchased: false)]
 
 
 var availableCharachter: [AllCharachter] =

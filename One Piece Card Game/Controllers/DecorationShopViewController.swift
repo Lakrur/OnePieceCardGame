@@ -45,15 +45,45 @@ class DecorationShopViewController: UIViewController {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        cardFlags.count
+        switch segmentedControl.selectedSegmentIndex {
+            case 0:
+            return cardFlags.count
+            default:
+                return 0
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DecorationShopCell", for: indexPath) as! DecorationCell
         
-        cell.decorationImageView.image = cardFlags[indexPath.row].picture
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            cell.decorationImageView.image = cardFlags[indexPath.row].picture
+        default:
+            print("error")
+        }
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            let detailDecorShopController = segue.destination as! DecorDetailShopViewController
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+                switch segmentedControl.selectedSegmentIndex {
+                case 0:
+                    detailDecorShopController.imageRecive = cardFlags[selectedIndexPath.row].picture
+                    detailDecorShopController.labelRecive = cardFlags[selectedIndexPath.row].description
+                    for flag in shopFlags {
+                        detailDecorShopController.priceRecive = "\(flag.price)"
+                        
+                    }
+                default:
+                    print("error")
+                }
+            }
+            
+        }
     }
     
     @IBAction func decorationPicker(_ sender: Any) {

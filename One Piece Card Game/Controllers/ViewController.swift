@@ -12,11 +12,12 @@ class ViewController: UIViewController {
 
     var flippedCharachter: (character: AllCharachter, button: UIButton)?
     var charachterCollection: [AllCharachter] = []
+    let flagIndex = 0
     
     // MARK: reset flipped card
     func resetCard() {
         for button in buttonCollection {
-            button.setImage(UIImage(named: "flag"), for: .normal)
+            button.setImage(availableFlags[flagIndex].picture, for: .normal)
             button.isEnabled = true
         }
     }
@@ -26,7 +27,7 @@ class ViewController: UIViewController {
     func flipButton(charchter: AllCharachter, button: UIButton) {
         
         if button.currentImage == charchter.picture {
-            button.setImage(UIImage(named: "flag"), for: .normal)
+            button.setImage(availableFlags[flagIndex].picture, for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
             button.isEnabled = true
         } else {
@@ -61,6 +62,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        resetCard()
     
         allBelly = bellyCounter
         

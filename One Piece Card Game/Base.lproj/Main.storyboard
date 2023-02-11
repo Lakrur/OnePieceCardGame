@@ -587,6 +587,7 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="decorationImageView" destination="5Ro-6Q-ABU" id="31X-hP-gBC"/>
+                                            <segue destination="nKj-aP-lPT" kind="presentation" identifier="detailSegue" id="awh-ck-CZM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -615,6 +616,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Et9-1e-Us0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2301.5384615384614" y="-68.246445497630333"/>
+        </scene>
+        <!--Decor Detail Shop View Controller-->
+        <scene sceneID="JeJ-zj-hjc">
+            <objects>
+                <viewController id="nKj-aP-lPT" customClass="DecorDetailShopViewController" customModule="One_Piece_Card_Game" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vjl-nx-bQa">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="haU-8a-cYd">
+                                <rect key="frame" x="93" y="57" width="217" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="fRB-zU-qNH"/>
+                                    <constraint firstAttribute="width" constant="217" id="mMI-7m-IS3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-qu-c1b">
+                                <rect key="frame" x="38" y="277" width="314" height="342"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="324" id="55H-IO-Vqv"/>
+                                    <constraint firstAttribute="height" constant="342" id="yMZ-cF-aRk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GjD-FH-uW2">
+                                <rect key="frame" x="154" y="687" width="84" height="74"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="buyButton" title=""/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The cost of this decoration: 350,000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nD-8V-7CV">
+                                <rect key="frame" x="246" y="687" width="128" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="Uoa-3l-cCw"/>
+                                    <constraint firstAttribute="width" constant="128" id="iHu-tq-u9c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Cdg-2u-Hvh"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="bottom" secondItem="GjD-FH-uW2" secondAttribute="bottom" constant="26" id="0ei-9a-hM0"/>
+                            <constraint firstItem="haU-8a-cYd" firstAttribute="leading" secondItem="Cdg-2u-Hvh" secondAttribute="leading" constant="93" id="2KU-AF-cT4"/>
+                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="haU-8a-cYd" secondAttribute="trailing" constant="80" id="4td-K7-TUm"/>
+                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="4nD-8V-7CV" secondAttribute="trailing" constant="16" id="6CR-yO-UaC"/>
+                            <constraint firstItem="haU-8a-cYd" firstAttribute="top" secondItem="Cdg-2u-Hvh" secondAttribute="top" constant="10" id="DHK-nV-44K"/>
+                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="R9g-qu-c1b" secondAttribute="trailing" constant="38" id="DfU-mb-g9T"/>
+                            <constraint firstItem="R9g-qu-c1b" firstAttribute="top" secondItem="haU-8a-cYd" secondAttribute="bottom" constant="30" id="Han-Jt-H2Y"/>
+                            <constraint firstItem="4nD-8V-7CV" firstAttribute="leading" secondItem="GjD-FH-uW2" secondAttribute="trailing" constant="8" symbolic="YES" id="M38-KC-nN1"/>
+                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="bottom" secondItem="4nD-8V-7CV" secondAttribute="bottom" constant="26" id="XHa-9N-ybd"/>
+                            <constraint firstItem="R9g-qu-c1b" firstAttribute="leading" secondItem="Cdg-2u-Hvh" secondAttribute="leading" constant="38" id="hrh-0e-aSY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buyButton" destination="GjD-FH-uW2" id="EwY-dv-lnv"/>
+                        <outlet property="decorImage" destination="haU-8a-cYd" id="A57-AA-ilf"/>
+                        <outlet property="decorLabel" destination="R9g-qu-c1b" id="M37-Al-RQC"/>
+                        <outlet property="priceLabel" destination="4nD-8V-7CV" id="pYM-Ap-Y4q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7xR-XF-kK6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3230.7692307692305" y="-68.246445497630333"/>
         </scene>
         <!--Detail Shop View Controller-->
         <scene sceneID="D5M-S5-w1t">
@@ -925,7 +993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQo-NH-eHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302" y="1659"/>
+            <point key="canvasLocation" x="2302" y="1484"/>
         </scene>
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
