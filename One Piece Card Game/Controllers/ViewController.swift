@@ -13,7 +13,6 @@ class ViewController: UIViewController {
     var flippedCharachter: (character: AllCharachter, button: UIButton)?
     var charachterCollection: [AllCharachter] = []
     
-    
     // MARK: reset flipped card
     func resetCard() {
         for button in buttonCollection {
@@ -50,7 +49,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
+        for button in buttonCollection {
+            button.setImage(currentlyUsedFlag!.picture, for: .normal)
+        }
         let tempArray = availableCharachter.shuffled()
         let slicedTempArray = tempArray[0...8].shuffled()
         charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
@@ -62,7 +63,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        
         resetCard()
     
         allBelly = bellyCounter

@@ -83,8 +83,7 @@ class InventoryViewController: UIViewController {
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 switch segmentedControl.selectedSegmentIndex {
                 case 0:
-                    
-                    return 
+                    return
                 case 1:
                     inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
                     inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description

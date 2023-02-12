@@ -21,6 +21,6 @@ struct Flag {
     var picture: UIImage
     var description: String
     var isPurchased = false
-    var price = 350_000
+    var price = 150_000
     
 }
