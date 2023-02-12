@@ -36,11 +36,10 @@ class InventoryEquipViewController: UIViewController {
     
 
     @IBAction func equipButtonAction(_ sender: Any) {
-        for flag in availableFlags {
-            currentlyUsedFlag.removeAll()
-            currentlyUsedFlag.append(flag)
-            print(currentlyUsedFlag)
-    
+        if let index = availableFlags.firstIndex(where: { $0.picture == imageRecieve }) {
+            currentlyUsedFlag = availableFlags[index]
+            showAlert(title: "Well done!", message: "Decoration applied successfully!")
+            
         }
     }
 }

@@ -625,20 +625,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="haU-8a-cYd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haU-8a-cYd">
                                 <rect key="frame" x="93" y="57" width="217" height="190"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="fRB-zU-qNH"/>
-                                    <constraint firstAttribute="width" constant="217" id="mMI-7m-IS3"/>
-                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-qu-c1b">
-                                <rect key="frame" x="38" y="277" width="314" height="342"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9g-qu-c1b">
+                                <rect key="frame" x="38" y="277" width="324" height="342"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="324" id="55H-IO-Vqv"/>
-                                    <constraint firstAttribute="height" constant="342" id="yMZ-cF-aRk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -666,11 +661,11 @@
                         <constraints>
                             <constraint firstItem="Cdg-2u-Hvh" firstAttribute="bottom" secondItem="GjD-FH-uW2" secondAttribute="bottom" constant="26" id="0ei-9a-hM0"/>
                             <constraint firstItem="haU-8a-cYd" firstAttribute="leading" secondItem="Cdg-2u-Hvh" secondAttribute="leading" constant="93" id="2KU-AF-cT4"/>
-                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="haU-8a-cYd" secondAttribute="trailing" constant="80" id="4td-K7-TUm"/>
                             <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="4nD-8V-7CV" secondAttribute="trailing" constant="16" id="6CR-yO-UaC"/>
                             <constraint firstItem="haU-8a-cYd" firstAttribute="top" secondItem="Cdg-2u-Hvh" secondAttribute="top" constant="10" id="DHK-nV-44K"/>
-                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="R9g-qu-c1b" secondAttribute="trailing" constant="38" id="DfU-mb-g9T"/>
-                            <constraint firstItem="R9g-qu-c1b" firstAttribute="top" secondItem="haU-8a-cYd" secondAttribute="bottom" constant="30" id="Han-Jt-H2Y"/>
+                            <constraint firstItem="R9g-qu-c1b" firstAttribute="top" secondItem="haU-8a-cYd" secondAttribute="bottom" constant="30" id="IMt-MC-mti"/>
+                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="haU-8a-cYd" secondAttribute="trailing" constant="80" id="Jb8-Sc-Ig0"/>
+                            <constraint firstItem="Cdg-2u-Hvh" firstAttribute="trailing" secondItem="R9g-qu-c1b" secondAttribute="trailing" constant="28" id="JwS-0n-tPP"/>
                             <constraint firstItem="4nD-8V-7CV" firstAttribute="leading" secondItem="GjD-FH-uW2" secondAttribute="trailing" constant="8" symbolic="YES" id="M38-KC-nN1"/>
                             <constraint firstItem="Cdg-2u-Hvh" firstAttribute="bottom" secondItem="4nD-8V-7CV" secondAttribute="bottom" constant="26" id="XHa-9N-ybd"/>
                             <constraint firstItem="R9g-qu-c1b" firstAttribute="leading" secondItem="Cdg-2u-Hvh" secondAttribute="leading" constant="38" id="hrh-0e-aSY"/>
@@ -898,14 +893,14 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="fIq-5M-3fh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tf-Rf-0Wy">
-                                <rect key="frame" x="158" y="705" width="75" height="35"/>
+                                <rect key="frame" x="158" y="696" width="75" height="44"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Equip"/>
+                                <buttonConfiguration key="configuration" style="plain" image="equipButton" title=""/>
                                 <connections>
                                     <action selector="equipButtonAction:" destination="BYR-W2-h9A" eventType="touchUpInside" id="FwR-lb-VeB"/>
                                 </connections>
@@ -1059,6 +1054,7 @@
         <image name="belly" width="10" height="16"/>
         <image name="buyButton" width="60" height="60"/>
         <image name="decorationShop" width="36" height="36"/>
+        <image name="equipButton" width="76.5" height="30"/>
         <image name="flag" width="99.5" height="100"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="inventory" width="50" height="47.5"/>

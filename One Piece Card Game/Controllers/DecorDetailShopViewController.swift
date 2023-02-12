@@ -21,6 +21,7 @@ class DecorDetailShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        decorLabel.numberOfLines = 0
         priceLabel.numberOfLines = 0
         decorImage.image = imageRecive
         decorLabel.text = labelRecive

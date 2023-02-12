@@ -16,7 +16,7 @@ struct AllCharachter {
     var isPurchased = false
 }
 
-struct AllFlags {
+struct Flag {
 
     var picture: UIImage
     var description: String

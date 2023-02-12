@@ -11,7 +11,7 @@ private let reuseIdentifier =  "DecorationShopCell"
 
 class DecorationShopViewController: UIViewController {
     
-    var cardFlags: [AllFlags] = []
+    var cardFlags: [Flag] = []
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!

@@ -15,7 +15,7 @@ class InventoryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var purchasedCharachters: [AllCharachter] = []
-    var purchasedFlags: [AllFlags] = []
+    var purchasedFlags: [Flag] = []
    
     
     override func viewDidLoad() {
@@ -83,17 +83,20 @@ class InventoryViewController: UIViewController {
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 switch segmentedControl.selectedSegmentIndex {
                 case 0:
-                    print("charachters")
+                    
+                    return 
                 case 1:
                     inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
                     inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description
+                case 2:
+                    print("background")
                 default:
                     print("error")
                 }
             }
-            
         }
     }
+
     
     
     @IBAction func inventoryPicker(_ sender: Any) {
