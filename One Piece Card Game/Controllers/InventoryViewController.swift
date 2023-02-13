@@ -77,13 +77,21 @@ class InventoryViewController: UIViewController {
        return cell
    }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if segmentedControl.selectedSegmentIndex == 0 {
+              return false
+          } else {
+              return true
+          }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "inventorySegue" {
             let inventoryEquipViewController = segue.destination as! InventoryEquipViewController
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 switch segmentedControl.selectedSegmentIndex {
                 case 0:
-                    return
+                    break
                 case 1:
                     inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
                     inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description
