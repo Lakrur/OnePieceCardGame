@@ -50,6 +50,17 @@ class DecorDetailShopViewController: UIViewController {
             } else {
                 showAlert(title: "Error", message: "You don't have enough money.")
             }
+        }  else if let index = shopBackgrounds.firstIndex(where: { $0.picture == imageRecive && !$0.isPurchased }) {
+            if belly >= shopBackgrounds[index].price {
+                belly -= shopBackgrounds[index].price
+                allBelly.text = "\(formatNumber(number: belly))"
+                availableBackgrounds.append(shopBackgrounds[index])
+                shopBackgrounds[index].isPurchased = true
+                
+                showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
+            } else {
+                showAlert(title: "Error", message: "You don't have enough money.")
+            }
         } else {
             showAlert(title: "Error", message: "This decoration is already bought.")
         }

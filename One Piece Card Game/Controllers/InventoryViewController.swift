@@ -16,6 +16,7 @@ class InventoryViewController: UIViewController {
     
     var purchasedCharachters: [AllCharachter] = []
     var purchasedFlags: [Flag] = []
+    var purchasedBackrounds: [Background] = []
    
     
     override func viewDidLoad() {
@@ -31,6 +32,8 @@ class InventoryViewController: UIViewController {
             print("Charachters")
         case 1:
             purchasedFlags = availableFlags
+        case 2:
+            purchasedBackrounds = availableBackgrounds
         default:
             break
             
@@ -39,7 +42,7 @@ class InventoryViewController: UIViewController {
 
         purchasedFlags = availableFlags
         purchasedCharachters = availableCharachter
-       
+        purchasedBackrounds = availableBackgrounds
         
     }
     
@@ -57,6 +60,8 @@ class InventoryViewController: UIViewController {
                 return purchasedCharachters.count
             case 1:
                 return purchasedFlags.count
+        case 2:
+            return purchasedBackrounds.count
             default:
                 return 0
             }
@@ -70,6 +75,8 @@ class InventoryViewController: UIViewController {
                cell.inventoryImageView.image = purchasedCharachters[indexPath.row].picture
            case 1:
             cell.inventoryImageView.image = purchasedFlags[indexPath.row].picture
+        case 2:
+            cell.inventoryImageView.image = purchasedBackrounds[indexPath.row].picture
            default:
                print("error")
            }
@@ -96,7 +103,7 @@ class InventoryViewController: UIViewController {
                     inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
                     inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description
                 case 2:
-                    print("background")
+                    inventoryEquipViewController.imageRecieve = availableBackgrounds[selectedIndexPath.row].picture
                 default:
                     print("error")
                 }
@@ -116,7 +123,7 @@ class InventoryViewController: UIViewController {
             purchasedFlags = availableFlags
             print("Flags")
         case 2:
-            print("Backgrounds")
+            purchasedBackrounds = availableBackgrounds
         default:
             break
         }

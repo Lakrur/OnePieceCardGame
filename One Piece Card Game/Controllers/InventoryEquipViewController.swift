@@ -40,6 +40,9 @@ class InventoryEquipViewController: UIViewController {
             currentlyUsedFlag = availableFlags[index]
             showAlert(title: "Well done!", message: "Decoration applied successfully!")
             
+        } else if let index = availableBackgrounds.firstIndex(where: { $0.picture == imageRecieve }) {
+            currentlyUsedBackground = availableBackgrounds[index]
+            showAlert(title: "Well done!", message: "Decoration applied successfully!")
         }
     }
 }

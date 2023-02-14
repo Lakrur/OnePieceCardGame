@@ -11,3 +11,4 @@ import UIKit
 var belly = 350000000
 weak var allBelly: UILabel!
 var currentlyUsedFlag: Flag? = (Flag(picture: UIImage(named: "flag")!, description: "Mugiwara flag"))
+var currentlyUsedBackground: Background? = (Background(picture: UIImage(named: "background0")!))

@@ -576,6 +576,10 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ro-6Q-ABU">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="ZXX-mf-8ug"/>
+                                                        <constraint firstAttribute="height" constant="100" id="ybk-ZY-K0o"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -831,6 +835,10 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="asl-tL-URw">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="9CV-VD-JaV"/>
+                                                        <constraint firstAttribute="height" constant="100" id="PXb-BC-eEN"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -911,7 +919,7 @@
                         <constraints>
                             <constraint firstItem="Ux9-gc-Ple" firstAttribute="trailing" secondItem="3Tf-Rf-0Wy" secondAttribute="trailing" constant="157" id="KAS-jf-fj0"/>
                             <constraint firstItem="Ux9-gc-Ple" firstAttribute="trailing" secondItem="3Xa-GR-3ds" secondAttribute="trailing" constant="86" id="Opu-ga-35X"/>
-                            <constraint firstItem="3Xa-GR-3ds" firstAttribute="top" secondItem="Ux9-gc-Ple" secondAttribute="top" constant="27" id="R5q-u5-F5u"/>
+                            <constraint firstItem="3Xa-GR-3ds" firstAttribute="top" secondItem="Ux9-gc-Ple" secondAttribute="top" constant="27" id="TDo-LR-RgG"/>
                             <constraint firstItem="3Xa-GR-3ds" firstAttribute="leading" secondItem="Ux9-gc-Ple" secondAttribute="leading" constant="87" id="Yo5-ym-SOs"/>
                             <constraint firstItem="3Tf-Rf-0Wy" firstAttribute="leading" secondItem="Ux9-gc-Ple" secondAttribute="leading" constant="158" id="Zvk-tp-DpX"/>
                             <constraint firstItem="Ux9-gc-Ple" firstAttribute="trailing" secondItem="ZkJ-eK-E5K" secondAttribute="trailing" constant="16" id="bjI-0F-xnC"/>

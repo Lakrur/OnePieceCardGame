@@ -12,6 +12,7 @@ private let reuseIdentifier =  "DecorationShopCell"
 class DecorationShopViewController: UIViewController {
     
     var cardFlags: [Flag] = []
+    var wallpapers: [Background] = []
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,11 +28,14 @@ class DecorationShopViewController: UIViewController {
         case 0:
             cardFlags = shopFlags
             print("FLag")
+        case 1:
+            wallpapers = shopBackgrounds
         default:
             break
         }
         collectionView.reloadData()
         cardFlags = shopFlags
+        wallpapers = shopBackgrounds
     }
     
 
@@ -48,6 +52,8 @@ class DecorationShopViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
             return cardFlags.count
+        case 1:
+           return wallpapers.count
             default:
                 return 0
             }
@@ -59,6 +65,8 @@ class DecorationShopViewController: UIViewController {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             cell.decorationImageView.image = cardFlags[indexPath.row].picture
+        case 1:
+            cell.decorationImageView.image = wallpapers[indexPath.row].picture
         default:
             print("error")
         }
@@ -78,6 +86,11 @@ class DecorationShopViewController: UIViewController {
                         detailDecorShopController.priceRecive = "\(flag.price)"
                         
                     }
+                case 1:
+                    detailDecorShopController.imageRecive = wallpapers[selectedIndexPath.row].picture
+                    for backgorund in shopBackgrounds {
+                        detailDecorShopController.priceRecive = "\(backgorund.price)"
+                    }
                 default:
                     print("error")
                 }
@@ -93,7 +106,7 @@ class DecorationShopViewController: UIViewController {
             cardFlags = shopFlags
             print("FLag")
         case 1:
-            print("Back")
+            wallpapers = shopBackgrounds
         default:
             break
         }

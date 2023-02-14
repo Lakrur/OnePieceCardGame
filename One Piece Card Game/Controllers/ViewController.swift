@@ -49,6 +49,7 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        view.backgroundColor = UIColor(patternImage: currentlyUsedBackground!.picture)
         for button in buttonCollection {
             button.setImage(currentlyUsedFlag!.picture, for: .normal)
         }
@@ -64,6 +65,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor(patternImage: currentlyUsedBackground!.picture)
         
         resetCard()
     
