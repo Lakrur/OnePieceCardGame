@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-
+    
     var flippedCharachter: (character: AllCharachter, button: UIButton)?
     var charachterCollection: [AllCharachter] = []
     
@@ -51,6 +51,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        startPresentation()
+        
         backgroundImage.image = currentlyUsedBackground!.picture
         
         
@@ -61,7 +64,7 @@ class ViewController: UIViewController {
         let slicedTempArray = tempArray[0...8].shuffled()
         charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
     }
-
+    
     
     // MARK: func viewDidLoad
     
@@ -70,9 +73,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         resetCard()
-    
+        
         allBelly = bellyCounter
-    
+        
         
         // MARK: Menu
         
@@ -96,12 +99,25 @@ class ViewController: UIViewController {
     override var shouldAutorotate: Bool {
         return false
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
-
     
+    
+    func startPresentation() {
+        
+        let userDefaults = UserDefaults.standard
+        let presentationWasViewed = userDefaults.bool(forKey: "presentationWasViewed")
+        if presentationWasViewed == false {
+            if let pageViewController = storyboard?.instantiateViewController(
+                withIdentifier: "PageViewController") as? PageViewController {
+                
+                present(pageViewController, animated: true, completion: nil)
+            }
+        }
+        
+    }
     
     
     // MARK: Card Buttons
