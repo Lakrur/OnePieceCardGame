@@ -12,9 +12,11 @@ class InventoryEquipViewController: UIViewController {
     @IBOutlet weak var passedImageView: UIImageView!
     @IBOutlet weak var passedLabel: UILabel!
     @IBOutlet weak var equip: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     var imageRecieve = UIImage()
     var labelRecive = String()
+    var backgroundImageReceive = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class InventoryEquipViewController: UIViewController {
         passedLabel.numberOfLines = 0
         passedImageView.image = imageRecieve
         passedLabel.text = labelRecive
+        backgroundImage.image = backgroundImageReceive
       
     }
     
@@ -40,7 +43,7 @@ class InventoryEquipViewController: UIViewController {
             currentlyUsedFlag = availableFlags[index]
             showAlert(title: "Well done!", message: "Decoration applied successfully!")
             
-        } else if let index = availableBackgrounds.firstIndex(where: { $0.picture == imageRecieve }) {
+        } else if let index = availableBackgrounds.firstIndex(where: { $0.picture == backgroundImageReceive }) {
             currentlyUsedBackground = availableBackgrounds[index]
             showAlert(title: "Well done!", message: "Decoration applied successfully!")
         }

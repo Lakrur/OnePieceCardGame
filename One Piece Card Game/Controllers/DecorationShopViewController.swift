@@ -87,7 +87,7 @@ class DecorationShopViewController: UIViewController {
                         
                     }
                 case 1:
-                    detailDecorShopController.imageRecive = wallpapers[selectedIndexPath.row].picture
+                    detailDecorShopController.backgroundImageRecive = wallpapers[selectedIndexPath.row].picture
                     for backgorund in shopBackgrounds {
                         detailDecorShopController.priceRecive = "\(backgorund.price)"
                     }

@@ -44,12 +44,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var rightSideTrallingAnchor: NSLayoutConstraint!
     @IBOutlet weak var leftSideMenu: UIView!
     @IBOutlet weak var leftSideMenuLeadingAnchor: NSLayoutConstraint!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
     
     // MARK: viewDidAppear
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        view.backgroundColor = UIColor(patternImage: currentlyUsedBackground!.picture)
+        backgroundImage.image = currentlyUsedBackground!.picture
+        
+        
         for button in buttonCollection {
             button.setImage(currentlyUsedFlag!.picture, for: .normal)
         }
@@ -64,8 +68,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor(patternImage: currentlyUsedBackground!.picture)
         
         resetCard()
     
@@ -162,8 +164,3 @@ class ViewController: UIViewController {
     
     
 }
-
-
-
-
-

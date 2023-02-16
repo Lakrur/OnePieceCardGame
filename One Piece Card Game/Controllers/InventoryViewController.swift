@@ -103,7 +103,7 @@ class InventoryViewController: UIViewController {
                     inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
                     inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description
                 case 2:
-                    inventoryEquipViewController.imageRecieve = availableBackgrounds[selectedIndexPath.row].picture
+                    inventoryEquipViewController.backgroundImageReceive = availableBackgrounds[selectedIndexPath.row].picture
                 default:
                     print("error")
                 }

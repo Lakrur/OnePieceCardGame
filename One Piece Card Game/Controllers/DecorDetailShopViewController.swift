@@ -13,10 +13,12 @@ class DecorDetailShopViewController: UIViewController {
     @IBOutlet weak var decorLabel: UILabel!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     var labelRecive = String()
     var imageRecive = UIImage()
     var priceRecive = String()
+    var backgroundImageRecive = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,7 @@ class DecorDetailShopViewController: UIViewController {
         decorImage.image = imageRecive
         decorLabel.text = labelRecive
         priceLabel.text = "The cost of this decoration: \(formatNumber(number: Int(priceRecive)!)) belly"
+        backgroundImage.image = backgroundImageRecive
         
     }
     
@@ -50,7 +53,7 @@ class DecorDetailShopViewController: UIViewController {
             } else {
                 showAlert(title: "Error", message: "You don't have enough money.")
             }
-        }  else if let index = shopBackgrounds.firstIndex(where: { $0.picture == imageRecive && !$0.isPurchased }) {
+        }  else if let index = shopBackgrounds.firstIndex(where: { $0.picture == backgroundImageRecive && !$0.isPurchased }) {
             if belly >= shopBackgrounds[index].price {
                 belly -= shopBackgrounds[index].price
                 allBelly.text = "\(formatNumber(number: belly))"
