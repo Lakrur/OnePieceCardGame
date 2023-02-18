@@ -23,15 +23,27 @@ class DetailShopViewController: UIViewController {
     var bringTextLabel = String()
     var coastTextLabel = String()
     
+    var musicManager = MusicManager.shared
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let sound = AudioService.shared
+        
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
         
         passedImageView.image = imageReceived
         informationLabel.text = "\(information)"
         informationLabel.numberOfLines = 0
         bringLabel.text = "Charachter will bring: \(formatNumber(number: Int(bringTextLabel)!)) belly"
         coastLabel.text = "Charachter price: \(formatNumber(number: Int(coastTextLabel)!)) belly"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        musicManager.resumeMusic()
+        
     }
     
     func showAlert(title: String, message: String) {
@@ -41,6 +53,7 @@ class DetailShopViewController: UIViewController {
         present(alert, animated: true)
         let sound = AudioService.shared
         sound.playSound(key: "error")
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
     }
     
     @IBAction func buyButton(_ sender: Any) {

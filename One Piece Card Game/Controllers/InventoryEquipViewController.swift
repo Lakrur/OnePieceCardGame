@@ -18,14 +18,26 @@ class InventoryEquipViewController: UIViewController {
     var labelRecive = String()
     var backgroundImageReceive = UIImage()
     
+    var musicManager = MusicManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let sound = AudioService.shared
+        
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
         
         passedLabel.numberOfLines = 0
         passedImageView.image = imageRecieve
         passedLabel.text = labelRecive
         backgroundImage.image = backgroundImageReceive
       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        musicManager.resumeMusic()
+        
     }
     
     func showAlert(title: String, message: String) {
@@ -35,6 +47,8 @@ class InventoryEquipViewController: UIViewController {
         present(alert, animated: true)
         let sound = AudioService.shared
         sound.playSound(key: "error")
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
+        
     }
     
 

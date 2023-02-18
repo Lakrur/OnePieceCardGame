@@ -17,6 +17,8 @@ class DecorationShopViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var musicManager = MusicManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +40,11 @@ class DecorationShopViewController: UIViewController {
         wallpapers = shopBackgrounds
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        musicManager.resumeMusic()
+        
+    }
 
     override var shouldAutorotate: Bool {
         return false

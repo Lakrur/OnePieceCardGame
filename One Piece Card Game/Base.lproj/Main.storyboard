@@ -1093,6 +1093,9 @@
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="35" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="WNL-pg-oSh" customClass="CustomSlider" customModule="One_Piece_Card_Game" customModuleProvider="target">
                                 <rect key="frame" x="124" y="190" width="215" height="31"/>
+                                <connections>
+                                    <action selector="musicAction:" destination="WAu-sk-Xf7" eventType="valueChanged" id="4LP-yR-7V5"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="35" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="lgW-rp-lIT" customClass="CustomSlider" customModule="One_Piece_Card_Game" customModuleProvider="target">
                                 <rect key="frame" x="124" y="239" width="215" height="31"/>

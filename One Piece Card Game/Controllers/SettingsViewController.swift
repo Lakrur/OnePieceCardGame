@@ -15,16 +15,23 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var musicSlider: UISlider!
     @IBOutlet weak var soundSlider: UISlider!
     
+    var musicManager = MusicManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let sound = AudioService.shared
+        
+        
         let userDefaults = UserDefaults.standard
+        
         soundSlider.value = userDefaults.float(forKey: "playerVolume")
         sound.player.volume = userDefaults.float(forKey: "playerVolume")
-        print(userDefaults.float(forKey: "playerVolume"))
-        
         sound.player.volume = soundSlider.value
+        
+        musicSlider.value = userDefaults.float(forKey: "musicVolume")
+        musicManager.audioPlayer?.volume = userDefaults.float(forKey: "musicVolume")
+        musicManager.audioPlayer?.volume = musicSlider.value
         
         soundSlider.minimumTrackTintColor = UIColor(named: "SliderMin")
         musicSlider.minimumTrackTintColor = UIColor(named: "SliderMin")
@@ -32,6 +39,12 @@ class SettingsViewController: UIViewController {
         musicSlider.maximumTrackTintColor = UIColor(named: "SliderMax")
         soundSlider.setThumbImage(UIImage(named: "den-den(on)"), for: .normal)
         musicSlider.setThumbImage(UIImage(named: "den-den(on)"), for: .normal)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        musicManager.resumeMusic()
+        
     }
     
     override var shouldAutorotate: Bool {
@@ -52,16 +65,32 @@ class SettingsViewController: UIViewController {
         let sound = AudioService.shared
         let userDefaults = UserDefaults.standard
         
+        
         sound.player.volume = sender.value
         //print(sound.player.volume)
         
-        userDefaults.set(soundSlider.value, forKey: "soundVolume")
+        userDefaults.set(soundSlider.value, forKey: "playerVolume")
         userDefaults.set(sound.player.volume, forKey: "playerVolume")
         
         userDefaults.synchronize()
+        
+        //AudioService.shared.player.play()
     }
+    
+    
+    @IBAction func musicAction(_ sender: UISlider) {
+        
+        let userDefaults = UserDefaults.standard
+        
+        musicManager.audioPlayer?.volume = sender.value
+        
+        userDefaults.set(musicSlider.value, forKey: "musicVolume")
+        userDefaults.set(musicManager.audioPlayer?.volume, forKey: "musicVolume")
+        
+        userDefaults.synchronize()
+    }
+    
 }
-
 
 
 class CustomSlider: UISlider {

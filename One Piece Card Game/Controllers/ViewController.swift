@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     var flippedCharachter: (character: AllCharachter, button: UIButton)?
     var charachterCollection: [AllCharachter] = []
+    var musicManager = MusicManager.shared
+
     
     // MARK: reset flipped card
     func resetCard() {
@@ -52,6 +54,8 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        musicManager.resumeMusic()
+        
         startPresentation()
         
         backgroundImage.image = currentlyUsedBackground!.picture
@@ -72,6 +76,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let sound = AudioService.shared
+        
+        musicManager.playMusic()
+        
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
+        
         resetCard()
         
         allBelly = bellyCounter
@@ -82,6 +92,8 @@ class ViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
         rightSideMenu.addGestureRecognizer(tapGesture )
     }
+    
+    
     
     
     @objc func tapGestureAction() {
@@ -126,6 +138,7 @@ class ViewController: UIViewController {
         flipButton(charchter: (charachterCollection)[buttonIndex], button: sender)
         let sound = AudioService.shared
         sound.playSound(key: "flip")
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
         
         guard let flippedCharachter = flippedCharachter else {
             flippedCharachter = ((charachterCollection)[buttonIndex], sender)
@@ -140,6 +153,7 @@ class ViewController: UIViewController {
         if flippedCharachter.character.id == (charachterCollection)[buttonIndex].id {
             let sound = AudioService.shared
             sound.playSound(key: "match")
+            sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
             belly += flippedCharachter.character.rarity.bring
             allBelly.text = ": \(formatNumber(number: belly))"
             charachterCollection.shuffle()
@@ -162,6 +176,7 @@ class ViewController: UIViewController {
     @IBAction func menuButtonAction(_ sender: Any) {
         let sound = AudioService.shared
         sound.playSound(key: "menu")
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
         leftSideMenuLeadingAnchor.constant = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()

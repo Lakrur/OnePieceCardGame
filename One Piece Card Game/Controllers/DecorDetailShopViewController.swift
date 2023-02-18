@@ -20,8 +20,14 @@ class DecorDetailShopViewController: UIViewController {
     var priceRecive = String()
     var backgroundImageRecive = UIImage()
     
+    var musicManager = MusicManager.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let sound = AudioService.shared
+        
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
         
         decorLabel.numberOfLines = 0
         priceLabel.numberOfLines = 0
@@ -32,6 +38,12 @@ class DecorDetailShopViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        musicManager.resumeMusic()
+        
+    }
+    
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)
@@ -39,6 +51,7 @@ class DecorDetailShopViewController: UIViewController {
         present(alert, animated: true)
         let sound = AudioService.shared
         sound.playSound(key: "error")
+        sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
     }
     
     @IBAction func buyButton(_ sender: Any) {

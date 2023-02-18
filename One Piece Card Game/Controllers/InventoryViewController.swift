@@ -17,6 +17,7 @@ class InventoryViewController: UIViewController {
     var purchasedCharachters: [AllCharachter] = []
     var purchasedFlags: [Flag] = []
     var purchasedBackrounds: [Background] = []
+    var musicManager = MusicManager.shared
    
     
     override func viewDidLoad() {
@@ -43,6 +44,18 @@ class InventoryViewController: UIViewController {
         purchasedFlags = availableFlags
         purchasedCharachters = availableCharachter
         purchasedBackrounds = availableBackgrounds
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        musicManager.resumeMusic()
+        
+    }
+
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
     }
     

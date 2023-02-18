@@ -26,6 +26,7 @@ class ShopCollectionViewController: UIViewController {
     
     
     var allCharachtersShop: [AllCharachter] = []
+    var musicManager = MusicManager.shared
     
     
     override func viewDidLoad() {
@@ -69,6 +70,12 @@ class ShopCollectionViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction))
         infoView.addGestureRecognizer(tapGesture )
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        musicManager.resumeMusic()
+        
     }
     
     @objc func tapGestureAction() {
