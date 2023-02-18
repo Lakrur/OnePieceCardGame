@@ -54,6 +54,10 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let userDefaults = UserDefaults.standard
+        
+        musicManager.audioPlayer?.volume = userDefaults.float(forKey: "musicVolume")
+        
         musicManager.resumeMusic()
         
         startPresentation()
