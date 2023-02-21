@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import RealmSwift
 
 class ViewController: UIViewController {
     
@@ -54,10 +55,16 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let realm = try! Realm()
+        if let bellyData = realm.objects(BellyData.self).last {
+            belly = bellyData.value
+        }
+        
+        allBelly.text = ": \(formatNumber(number: belly))"
+        
         let userDefaults = UserDefaults.standard
         
         musicManager.audioPlayer?.volume = userDefaults.float(forKey: "musicVolume")
-        
         musicManager.resumeMusic()
         
         startPresentation()
@@ -160,6 +167,14 @@ class ViewController: UIViewController {
             sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
             belly += flippedCharachter.character.rarity.bring
             allBelly.text = ": \(formatNumber(number: belly))"
+            
+            let realm = try! Realm()
+                    try! realm.write {
+                        let bellyData = BellyData()
+                        bellyData.value = belly
+                        realm.add(bellyData)
+                    }
+            
             charachterCollection.shuffle()
         }
         
