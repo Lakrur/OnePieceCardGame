@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DecorDetailShopViewController: UIViewController {
     
@@ -59,6 +60,12 @@ class DecorDetailShopViewController: UIViewController {
             if belly >= shopFlags[index].price {
                 belly -= shopFlags[index].price
                 allBelly.text = "\(formatNumber(number: belly))"
+                let realm = try! Realm()
+                try! realm.write {
+                    let bellyData = BellyData()
+                    bellyData.value = belly
+                    realm.add(bellyData)
+                }
                 availableFlags.append(shopFlags[index])
                 shopFlags[index].isPurchased = true
                 
@@ -70,6 +77,12 @@ class DecorDetailShopViewController: UIViewController {
             if belly >= shopBackgrounds[index].price {
                 belly -= shopBackgrounds[index].price
                 allBelly.text = "\(formatNumber(number: belly))"
+                let realm = try! Realm()
+                try! realm.write {
+                    let bellyData = BellyData()
+                    bellyData.value = belly
+                    realm.add(bellyData)
+                }
                 availableBackgrounds.append(shopBackgrounds[index])
                 shopBackgrounds[index].isPurchased = true
                 

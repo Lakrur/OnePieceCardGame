@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import RealmSwift
 
 class DetailShopViewController: UIViewController {
     
@@ -61,6 +62,12 @@ class DetailShopViewController: UIViewController {
             if belly >= shopCharachters[index].rarity.price {
                 belly -= shopCharachters[index].rarity.price
                 allBelly.text = "\(formatNumber(number: belly))"
+                let realm = try! Realm()
+                try! realm.write {
+                    let bellyData = BellyData()
+                    bellyData.value = belly
+                    realm.add(bellyData)
+                }
                 availableCharachter.append(shopCharachters[index])
                 shopCharachters[index].isPurchased = true
                 
