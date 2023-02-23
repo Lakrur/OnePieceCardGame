@@ -16,11 +16,3 @@ struct AllCharachter {
     var isPurchased = false
 }
 
-struct Flag {
-
-    var picture: UIImage
-    var description: String
-    var isPurchased = false
-    var price = 150_000
-    
-}

@@ -25,3 +25,20 @@ class BackgroundModel: Object {
             self.id = id
         }
 }
+
+class FlagModel: Object {
+
+    @Persisted var picture: String
+    @Persisted var flagDescription: String
+    @Persisted var isPurchased = false
+    @Persisted var price = 150_000
+    @Persisted var id: Int
+    
+    convenience init(picture: String, flagDescription: String, isPurchased: Bool, id: Int) {
+        self.init()
+        self.picture = picture
+        self.flagDescription = flagDescription
+        self.isPurchased = isPurchased
+        self.id = id
+    }
+}

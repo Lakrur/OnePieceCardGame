@@ -11,7 +11,7 @@ private let reuseIdentifier =  "DecorationShopCell"
 
 class DecorationShopViewController: UIViewController {
     
-    var cardFlags: [Flag] = []
+    var cardFlags: [FlagModel] = []
     var wallpapers: [BackgroundModel] = []
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -71,7 +71,7 @@ class DecorationShopViewController: UIViewController {
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cell.decorationImageView.image = cardFlags[indexPath.row].picture
+            cell.decorationImageView.image = UIImage(named: cardFlags[indexPath.row].picture)!
         case 1:
             cell.decorationImageView.image = UIImage(data: wallpapers[indexPath.row].picture)
         default:
@@ -87,8 +87,8 @@ class DecorationShopViewController: UIViewController {
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 switch segmentedControl.selectedSegmentIndex {
                 case 0:
-                    detailDecorShopController.imageRecive = cardFlags[selectedIndexPath.row].picture
-                    detailDecorShopController.labelRecive = cardFlags[selectedIndexPath.row].description
+                    detailDecorShopController.imageRecive = UIImage(named: cardFlags[selectedIndexPath.row].picture)!
+                    detailDecorShopController.labelRecive = cardFlags[selectedIndexPath.row].flagDescription
                     for flag in shopFlags {
                         detailDecorShopController.priceRecive = "\(flag.price)"
                         

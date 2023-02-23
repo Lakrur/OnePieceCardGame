@@ -16,7 +16,7 @@ class InventoryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var purchasedCharachters: [AllCharachter] = []
-    var purchasedFlags: [Flag] = []
+    var purchasedFlags: [FlagModel] = []
     var purchasedBackrounds: [BackgroundModel] = []
     var musicManager = MusicManager.shared
    
@@ -76,6 +76,20 @@ class InventoryViewController: UIViewController {
                 
             }
         }
+        
+        let purchasedFlags = realm.objects(FlagModel.self).filter("isPurchased == true")
+        
+        availableFlags.removeAll()
+        
+        availableFlags.append(currentlyUsedFlag!)
+        
+        for flags in purchasedFlags {
+            if !flags.isInvalidated && !availableFlags.contains(flags) {
+                availableFlags.append(flags)
+            }
+        }
+        
+        
         collectionView.reloadData()
         
     }
@@ -114,7 +128,7 @@ class InventoryViewController: UIViewController {
            case 0:
                cell.inventoryImageView.image = purchasedCharachters[indexPath.row].picture
            case 1:
-            cell.inventoryImageView.image = purchasedFlags[indexPath.row].picture
+            cell.inventoryImageView.image = UIImage(named: purchasedFlags[indexPath.row].picture)
         case 2:
             if let image = UIImage(data: purchasedBackrounds[indexPath.row].picture) {
                        cell.inventoryImageView.image = image
@@ -142,8 +156,8 @@ class InventoryViewController: UIViewController {
                 case 0:
                     break
                 case 1:
-                    inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
-                    inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description
+                    inventoryEquipViewController.imageRecieve = UIImage(named: availableFlags[selectedIndexPath.row].picture)!
+                    inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].flagDescription
                 case 2:
                     inventoryEquipViewController.backgroundImageReceive = UIImage(data: availableBackgrounds[selectedIndexPath.row].picture)!
                 default:

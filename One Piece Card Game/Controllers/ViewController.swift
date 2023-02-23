@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     // MARK: reset flipped card
     func resetCard() {
         for button in buttonCollection {
-            button.setImage(currentlyUsedFlag!.picture, for: .normal)
+            button.setImage(UIImage(named: currentlyUsedFlag!.picture), for: .normal)
             button.isEnabled = true
         }
     }
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     func flipButton(charchter: AllCharachter, button: UIButton) {
         
         if button.currentImage == charchter.picture {
-            button.setImage(currentlyUsedFlag!.picture, for: .normal)
+            button.setImage(UIImage(named: currentlyUsedFlag!.picture), for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
             button.isEnabled = true
         } else {
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
         
         
         for button in buttonCollection {
-            button.setImage(currentlyUsedFlag!.picture, for: .normal)
+            button.setImage(UIImage(named: currentlyUsedFlag!.picture), for: .normal)
         }
         let tempArray = availableCharachter.shuffled()
         let slicedTempArray = tempArray[0...8].shuffled()

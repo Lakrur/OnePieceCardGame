@@ -56,8 +56,21 @@ class DecorDetailShopViewController: UIViewController {
     }
     
     @IBAction func buyButton(_ sender: Any) {
-            if let index = shopFlags.firstIndex(where: { $0.picture == imageRecive && !$0.isPurchased }) {
-                if belly >= shopFlags[index].price {
+        if let index = shopFlags.firstIndex(where: { UIImage(named: $0.picture) == imageRecive && !$0.isPurchased }) {
+            let realm = try! Realm()
+            if let purchasedFlags = realm.objects(FlagModel.self).filter("id == \(shopFlags[index].id) AND isPurchased == true", shopFlags[index].picture).first {
+                showAlert(title: "Error", message: "You already own this background.")
+            } else if belly >= shopFlags[index].price {
+                try! realm.write {
+                    let saveFlags = FlagModel()
+                    saveFlags.picture = shopFlags[index].picture
+                    saveFlags.isPurchased = true
+                    saveFlags.id = shopFlags[index].id
+                    saveFlags.flagDescription = shopFlags[index].flagDescription
+                    availableFlags.append(shopFlags[index])
+                    showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
+                    realm.add(saveFlags)
+                }
                     belly -= shopFlags[index].price
                     allBelly.text = "\(formatNumber(number: belly))"
                     let realm = try! Realm()
@@ -67,8 +80,6 @@ class DecorDetailShopViewController: UIViewController {
                     }
                     availableFlags.append(shopFlags[index])
                     shopFlags[index].isPurchased = true
-                    
-                    showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
                 } else {
                     showAlert(title: "Error", message: "You don't have enough money.")
                 }
