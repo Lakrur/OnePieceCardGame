@@ -12,7 +12,7 @@ private let reuseIdentifier =  "DecorationShopCell"
 class DecorationShopViewController: UIViewController {
     
     var cardFlags: [Flag] = []
-    var wallpapers: [BackgroundsModel] = []
+    var wallpapers: [BackgroundModel] = []
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!

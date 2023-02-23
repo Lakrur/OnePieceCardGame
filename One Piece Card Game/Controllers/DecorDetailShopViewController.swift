@@ -74,12 +74,12 @@ class DecorDetailShopViewController: UIViewController {
                 }
             }  else if let index = shopBackgrounds.firstIndex(where: { $0.picture == backgroundImageRecive && !$0.isPurchased }) {
                 let realm = try! Realm()
-    if let purchasedBackground = realm.objects(BackgroundsModel.self).filter("id == \(shopBackgrounds[index].id) AND isPurchased == true", shopBackgrounds[index].picture).first {
+    if let purchasedBackground = realm.objects(BackgroundModel.self).filter("id == \(shopBackgrounds[index].id) AND isPurchased == true", shopBackgrounds[index].picture).first {
         showAlert(title: "Error", message: "You already own this background.")
     } else if belly >= shopBackgrounds[index].price {
                     let realm = try! Realm()
                     try! realm.write {
-                        let saveBackground = BackgroundsModel()
+                        let saveBackground = BackgroundModel()
                         saveBackground.picture = shopBackgrounds[index].picture
                         saveBackground.isPurchased = true
                         saveBackground.id = shopBackgrounds[index].id

@@ -17,7 +17,7 @@ class InventoryViewController: UIViewController {
     
     var purchasedCharachters: [AllCharachter] = []
     var purchasedFlags: [Flag] = []
-    var purchasedBackrounds: [BackgroundsModel] = []
+    var purchasedBackrounds: [BackgroundModel] = []
     var musicManager = MusicManager.shared
    
     
@@ -58,9 +58,9 @@ class InventoryViewController: UIViewController {
         
         
         let realm = try! Realm()
-        let purchasedBackgrounds = realm.objects(BackgroundsModel.self).filter("isPurchased == true")
+        let purchasedBackgrounds = realm.objects(BackgroundModel.self).filter("isPurchased == true")
 
-        var fetchedBackground: [BackgroundsModel] = [BackgroundsModel(picture: UIImage(named: "background0")!, isPurchased: true, id: 1)]
+        var fetchedBackground: [BackgroundModel] = [BackgroundModel(picture: UIImage(named: "background0")!, isPurchased: true, id: 1)]
         
         availableBackgrounds.removeAll()
         

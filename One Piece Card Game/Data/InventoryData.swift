@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class BackgroundsModel: Object {
+class BackgroundModel: Object {
    
     @Persisted var picture: Data
     @Persisted var price = 80_000
