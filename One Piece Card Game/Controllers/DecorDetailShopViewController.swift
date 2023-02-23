@@ -19,7 +19,7 @@ class DecorDetailShopViewController: UIViewController {
     var labelRecive = String()
     var imageRecive = UIImage()
     var priceRecive = String()
-    var backgroundImageRecive = UIImage()
+    var backgroundImageRecive = Data()
     
     var musicManager = MusicManager.shared
     
@@ -35,7 +35,7 @@ class DecorDetailShopViewController: UIViewController {
         decorImage.image = imageRecive
         decorLabel.text = labelRecive
         priceLabel.text = "The cost of this decoration: \(formatNumber(number: Int(priceRecive)!)) belly"
-        backgroundImage.image = backgroundImageRecive
+        backgroundImage.image = UIImage(data: backgroundImageRecive)
         
     }
     
@@ -56,43 +56,49 @@ class DecorDetailShopViewController: UIViewController {
     }
     
     @IBAction func buyButton(_ sender: Any) {
-        if let index = shopFlags.firstIndex(where: { $0.picture == imageRecive && !$0.isPurchased }) {
-            if belly >= shopFlags[index].price {
-                belly -= shopFlags[index].price
-                allBelly.text = "\(formatNumber(number: belly))"
-                let realm = try! Realm()
-                try! realm.write {
-                    let bellyData = BellyData()
-                    bellyData.value = belly
-                    realm.add(bellyData)
+            if let index = shopFlags.firstIndex(where: { $0.picture == imageRecive && !$0.isPurchased }) {
+                if belly >= shopFlags[index].price {
+                    belly -= shopFlags[index].price
+                    allBelly.text = "\(formatNumber(number: belly))"
+                    let realm = try! Realm()
+                    try! realm.write {
+                        let bellyData = realm.objects(BellyData.self).first!
+                        bellyData.value = belly
+                    }
+                    availableFlags.append(shopFlags[index])
+                    shopFlags[index].isPurchased = true
+                    
+                    showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
+                } else {
+                    showAlert(title: "Error", message: "You don't have enough money.")
                 }
-                availableFlags.append(shopFlags[index])
-                shopFlags[index].isPurchased = true
-                
-                showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
-            } else {
-                showAlert(title: "Error", message: "You don't have enough money.")
-            }
-        }  else if let index = shopBackgrounds.firstIndex(where: { $0.picture == backgroundImageRecive && !$0.isPurchased }) {
-            if belly >= shopBackgrounds[index].price {
-                belly -= shopBackgrounds[index].price
-                allBelly.text = "\(formatNumber(number: belly))"
+            }  else if let index = shopBackgrounds.firstIndex(where: { $0.picture == backgroundImageRecive && !$0.isPurchased }) {
                 let realm = try! Realm()
-                try! realm.write {
-                    let bellyData = BellyData()
-                    bellyData.value = belly
-                    realm.add(bellyData)
+    if let purchasedBackground = realm.objects(BackgroundsModel.self).filter("id == \(shopBackgrounds[index].id) AND isPurchased == true", shopBackgrounds[index].picture).first {
+        showAlert(title: "Error", message: "You already own this background.")
+    } else if belly >= shopBackgrounds[index].price {
+                    let realm = try! Realm()
+                    try! realm.write {
+                        let saveBackground = BackgroundsModel()
+                        saveBackground.picture = shopBackgrounds[index].picture
+                        saveBackground.isPurchased = true
+                        saveBackground.id = shopBackgrounds[index].id
+                        availableBackgrounds.append(shopBackgrounds[index])
+                        showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
+                        realm.add(saveBackground)
+                    }
+                    belly -= shopBackgrounds[index].price
+                    allBelly.text = "\(formatNumber(number: belly))"
+                    try! realm.write {
+                        let bellyData = realm.objects(BellyData.self).first!
+                        bellyData.value = belly
+                    }
+                } else {
+                    showAlert(title: "Error", message: "You don't have enough money.")
                 }
-                availableBackgrounds.append(shopBackgrounds[index])
-                shopBackgrounds[index].isPurchased = true
-                
-                showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
             } else {
-                showAlert(title: "Error", message: "You don't have enough money.")
+                showAlert(title: "Error", message: "You can't buy this item.")
             }
-        } else {
-            showAlert(title: "Error", message: "This decoration is already bought.")
         }
     }
-}
-
+       

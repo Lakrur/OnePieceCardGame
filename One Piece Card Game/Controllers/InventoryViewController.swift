@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "InventoryCell"
 
@@ -16,7 +17,7 @@ class InventoryViewController: UIViewController {
     
     var purchasedCharachters: [AllCharachter] = []
     var purchasedFlags: [Flag] = []
-    var purchasedBackrounds: [Background] = []
+    var purchasedBackrounds: [BackgroundsModel] = []
     var musicManager = MusicManager.shared
    
     
@@ -45,17 +46,43 @@ class InventoryViewController: UIViewController {
         purchasedCharachters = availableCharachter
         purchasedBackrounds = availableBackgrounds
         
+        
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         musicManager.resumeMusic()
         
-    }
+        
+        
+        let realm = try! Realm()
+        let purchasedBackgrounds = realm.objects(BackgroundsModel.self).filter("isPurchased == true")
 
+        var fetchedBackground: [BackgroundsModel] = [BackgroundsModel(picture: UIImage(named: "background0")!, isPurchased: true, id: 1)]
+        
+        availableBackgrounds.removeAll()
+        
+        for background in fetchedBackground {
+            if !background.isInvalidated {
+                availableBackgrounds.append(background)
+            }
+        }
+
+        for background in purchasedBackgrounds {
+            if !background.isInvalidated && !availableBackgrounds.contains(background) {
+                availableBackgrounds.append(background)
+                
+            }
+        }
+        collectionView.reloadData()
+        
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        
         
     }
     
@@ -89,7 +116,9 @@ class InventoryViewController: UIViewController {
            case 1:
             cell.inventoryImageView.image = purchasedFlags[indexPath.row].picture
         case 2:
-            cell.inventoryImageView.image = purchasedBackrounds[indexPath.row].picture
+            if let image = UIImage(data: purchasedBackrounds[indexPath.row].picture) {
+                       cell.inventoryImageView.image = image
+                   }
            default:
                print("error")
            }
@@ -116,7 +145,7 @@ class InventoryViewController: UIViewController {
                     inventoryEquipViewController.imageRecieve = availableFlags[selectedIndexPath.row].picture
                     inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].description
                 case 2:
-                    inventoryEquipViewController.backgroundImageReceive = availableBackgrounds[selectedIndexPath.row].picture
+                    inventoryEquipViewController.backgroundImageReceive = UIImage(data: availableBackgrounds[selectedIndexPath.row].picture)!
                 default:
                     print("error")
                 }

@@ -24,10 +24,3 @@ struct Flag {
     var price = 150_000
     
 }
-
-struct Background {
-    
-    var picture: UIImage
-    var price = 80_000
-    var isPurchased = false
-}

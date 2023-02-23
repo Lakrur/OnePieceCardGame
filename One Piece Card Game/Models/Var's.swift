@@ -11,4 +11,4 @@ import UIKit
 var belly = 0
 weak var allBelly: UILabel!
 var currentlyUsedFlag: Flag? = (Flag(picture: UIImage(named: "flag")!, description: "Mugiwara flag"))
-var currentlyUsedBackground: Background? = (Background(picture: UIImage(named: "background0")!))
+var currentlyUsedBackground: BackgroundsModel? = (BackgroundsModel(picture: UIImage(named: "background0")!, isPurchased: true, id: 1))

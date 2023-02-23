@@ -12,7 +12,7 @@ private let reuseIdentifier =  "DecorationShopCell"
 class DecorationShopViewController: UIViewController {
     
     var cardFlags: [Flag] = []
-    var wallpapers: [Background] = []
+    var wallpapers: [BackgroundsModel] = []
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -73,7 +73,7 @@ class DecorationShopViewController: UIViewController {
         case 0:
             cell.decorationImageView.image = cardFlags[indexPath.row].picture
         case 1:
-            cell.decorationImageView.image = wallpapers[indexPath.row].picture
+            cell.decorationImageView.image = UIImage(data: wallpapers[indexPath.row].picture)
         default:
             print("error")
         }

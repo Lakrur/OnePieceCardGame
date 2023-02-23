@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         
         startPresentation()
         
-        backgroundImage.image = currentlyUsedBackground!.picture
+        backgroundImage.image = UIImage(data: currentlyUsedBackground!.picture)
         
         
         for button in buttonCollection {
@@ -165,7 +165,7 @@ class ViewController: UIViewController {
             let sound = AudioService.shared
             sound.playSound(key: "match")
             sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
-            belly += flippedCharachter.character.rarity.bring
+            belly += 100000000 //flippedCharachter.character.rarity.bring
             allBelly.text = ": \(formatNumber(number: belly))"
             
             let realm = try! Realm()

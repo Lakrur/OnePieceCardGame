@@ -10,9 +10,9 @@ import ImageIO
 
 class PageViewController: UIPageViewController {
     
-    let presentScreenContent = ["Welcome to the One Piece world card game! We wish you a pleasant pastime. We hope you enjoy and achieve all your goals!", "Find the same cards and earn belly!", "Buy new characters for belly (which will bring more belly) and decorations.", "Good luck pirate! I hope you find one piece and become the king of the pirates.", " "]
+    let presentScreenContent = ["Welcome to the One Piece world card game! We wish you a pleasant pastime. We hope you enjoy and achieve all your goals!", "Find the same cards and earn belly!", "Buy new characters for belly (which will bring more belly) and decorations.", "Good luck pirate! I hope you find one piece and become the king of the pirates."]
     
-    let imageArray = [UIImage(named: "UIPage1")!, UIImage(named: "MatchCards")!, UIImage(named: "BuyCharachter")!, UIImage(named: "Lucky")!, UIImage(named: "blueScreen")!]
+    let imageArray = [UIImage(named: "UIPage1")!, UIImage(named: "MatchCards")!, UIImage(named: "BuyCharachter")!, UIImage(named: "Lucky")!]
 
     override func viewDidLoad() {
         super.viewDidLoad()

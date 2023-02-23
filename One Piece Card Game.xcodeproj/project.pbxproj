@@ -29,6 +29,7 @@
 		78B142D429A567240058E57F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 78B142D329A567240058E57F /* Realm */; };
 		78B142D629A567240058E57F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 78B142D529A567240058E57F /* RealmSwift */; };
 		78B142D929A567B30058E57F /* BellyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B142D829A567B30058E57F /* BellyData.swift */; };
+		78B142E929A787540058E57F /* InventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B142E829A787540058E57F /* InventoryData.swift */; };
 		78D66884298848ED00AD521B /* ShopCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D66883298848ED00AD521B /* ShopCollectionViewController.swift */; };
 		78D668882988518B00AD521B /* ShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D668872988518B00AD521B /* ShopCell.swift */; };
 		78E5AA05298581F600695C39 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5AA04298581F600695C39 /* InventoryViewController.swift */; };
@@ -62,6 +63,7 @@
 		789582AC2995733700E12A54 /* DecorationShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorationShopCell.swift; sourceTree = "<group>"; };
 		789582AE2995734700E12A54 /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		78B142D829A567B30058E57F /* BellyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BellyData.swift; sourceTree = "<group>"; };
+		78B142E829A787540058E57F /* InventoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryData.swift; sourceTree = "<group>"; };
 		78D66883298848ED00AD521B /* ShopCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewController.swift; sourceTree = "<group>"; };
 		78D668872988518B00AD521B /* ShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCell.swift; sourceTree = "<group>"; };
 		78E5AA04298581F600695C39 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				78B142D829A567B30058E57F /* BellyData.swift */,
+				78B142E829A787540058E57F /* InventoryData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				78958262298EF8F400E12A54 /* Var's.swift in Sources */,
 				785184FE2997FED100E316E9 /* InventoryEquipViewController.swift in Sources */,
 				7895825E298BF33A00E12A54 /* Structs.swift in Sources */,
+				78B142E929A787540058E57F /* InventoryData.swift in Sources */,
 				78D66884298848ED00AD521B /* ShopCollectionViewController.swift in Sources */,
 				78958269298F091000E12A54 /* Sounds.swift in Sources */,
 				789582AF2995734700E12A54 /* InventoryCell.swift in Sources */,
