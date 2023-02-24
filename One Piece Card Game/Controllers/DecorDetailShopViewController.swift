@@ -19,7 +19,7 @@ class DecorDetailShopViewController: UIViewController {
     var labelRecive = String()
     var imageRecive = UIImage()
     var priceRecive = String()
-    var backgroundImageRecive = Data()
+    var backgroundImageRecive = UIImage()
     
     var musicManager = MusicManager.shared
     
@@ -35,7 +35,7 @@ class DecorDetailShopViewController: UIViewController {
         decorImage.image = imageRecive
         decorLabel.text = labelRecive
         priceLabel.text = "The cost of this decoration: \(formatNumber(number: Int(priceRecive)!)) belly"
-        backgroundImage.image = UIImage(data: backgroundImageRecive)
+        backgroundImage.image = backgroundImageRecive
         
     }
     
@@ -83,17 +83,17 @@ class DecorDetailShopViewController: UIViewController {
                 } else {
                     showAlert(title: "Error", message: "You don't have enough money.")
                 }
-            }  else if let index = shopBackgrounds.firstIndex(where: { $0.picture == backgroundImageRecive && !$0.isPurchased }) {
+        }  else if let index = shopBackgrounds.firstIndex(where: { UIImage(named: $0.picture) == backgroundImageRecive && !$0.isPurchased }) {
                 let realm = try! Realm()
-    if let purchasedBackground = realm.objects(BackgroundModel.self).filter("id == \(shopBackgrounds[index].id) AND isPurchased == true", shopBackgrounds[index].picture).first {
+    if let purchasedBackground = realm.objects(GameBackgroundModel.self).filter("id == \(shopBackgrounds[index].id) AND isPurchased == true", shopBackgrounds[index].picture).first {
         showAlert(title: "Error", message: "You already own this background.")
     } else if belly >= shopBackgrounds[index].price {
                     let realm = try! Realm()
                     try! realm.write {
-                        let saveBackground = BackgroundModel()
+                        let saveBackground = GameBackgroundModel()
+                        saveBackground.id = shopBackgrounds[index].id
                         saveBackground.picture = shopBackgrounds[index].picture
                         saveBackground.isPurchased = true
-                        saveBackground.id = shopBackgrounds[index].id
                         availableBackgrounds.append(shopBackgrounds[index])
                         showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
                         realm.add(saveBackground)

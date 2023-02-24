@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-enum rarety {
+enum Rarety: Int, PersistableEnum {
     case common
     case uncommon
     case rare
@@ -44,3 +45,27 @@ enum rarety {
     }
 }
 
+extension Rarety: _Persistable {
+    public static var defaultValue: Rarety { return .common }
+    
+    public static func fromPersistedType(_ persistedValue: Int) -> Rarety? {
+        switch persistedValue {
+        case 0: return .common
+        case 1: return .uncommon
+        case 2: return .rare
+        case 3: return .epic
+        case 4: return .legendary
+        default: return nil
+        }
+    }
+    
+    public var persistedValue: Int {
+        switch self {
+        case .common: return 0
+        case .uncommon: return 1
+        case .rare: return 2
+        case .epic: return 3
+        case .legendary: return 4
+        }
+    }
+}

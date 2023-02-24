@@ -11,8 +11,8 @@ import RealmSwift
 
 class ViewController: UIViewController {
     
-    var flippedCharachter: (character: AllCharachter, button: UIButton)?
-    var charachterCollection: [AllCharachter] = []
+    var flippedCharachter: (character: CharachterModel, button: UIButton)?
+    var charachterCollection: [CharachterModel] = []
     var musicManager = MusicManager.shared
 
     
@@ -26,14 +26,14 @@ class ViewController: UIViewController {
     
     // MARK: func flip button
     
-    func flipButton(charchter: AllCharachter, button: UIButton) {
+    func flipButton(charchter: CharachterModel, button: UIButton) {
         
-        if button.currentImage == charchter.picture {
+        if button.currentImage == UIImage(named: charchter.picture) {
             button.setImage(UIImage(named: currentlyUsedFlag!.picture), for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
             button.isEnabled = true
         } else {
-            button.setImage(charchter.picture, for: .normal)
+            button.setImage(UIImage(named: charchter.picture), for: .normal)
             UIView.transition(with: button, duration: 0.3,options:  .transitionFlipFromLeft, animations: nil, completion: nil)
             button.isEnabled = false
         }
@@ -69,15 +69,33 @@ class ViewController: UIViewController {
         
         startPresentation()
         
-        backgroundImage.image = UIImage(data: currentlyUsedBackground!.picture)
+        backgroundImage.image = UIImage(named: currentlyUsedBackground!.picture)
         
         
         for button in buttonCollection {
             button.setImage(UIImage(named: currentlyUsedFlag!.picture), for: .normal)
         }
+        
         let tempArray = availableCharachter.shuffled()
         let slicedTempArray = tempArray[0...8].shuffled()
         charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
+        
+        
+        let purchasedCharachters = realm.objects(CharachterModel.self).filter("isPurchased == true")
+        
+        availableCharachter.removeAll()
+        
+        for charachter in startCharachters {
+            if !charachter.isInvalidated && !availableCharachter.contains(charachter) {
+                availableCharachter.append(charachter)
+            }
+        }
+        
+        for charachter in purchasedCharachters {
+            if !charachter.isInvalidated && !availableCharachter.contains(charachter) {
+                availableCharachter.append(charachter)
+            }
+        }
     }
     
     
@@ -165,7 +183,7 @@ class ViewController: UIViewController {
             let sound = AudioService.shared
             sound.playSound(key: "match")
             sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
-            belly += 100000000 //flippedCharachter.character.rarity.bring
+            belly += flippedCharachter.character.rarity.bring
             allBelly.text = ": \(formatNumber(number: belly))"
             
             let realm = try! Realm()

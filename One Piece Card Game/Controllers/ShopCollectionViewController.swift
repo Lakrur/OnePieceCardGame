@@ -18,14 +18,14 @@ class ShopCollectionViewController: UIViewController {
     @IBOutlet weak var rightSideAnchor: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var commonCharachterShop: [AllCharachter] = []
-    var uncommonCharahterShop: [AllCharachter] = []
-    var rareCharachterShop: [AllCharachter] = []
-    var epicCharachterShop: [AllCharachter] = []
-    var legendaryCharachterShop: [AllCharachter] = []
+    var commonCharachterShop: [CharachterModel] = []
+    var uncommonCharahterShop: [CharachterModel] = []
+    var rareCharachterShop: [CharachterModel] = []
+    var epicCharachterShop: [CharachterModel] = []
+    var legendaryCharachterShop: [CharachterModel] = []
     
     
-    var allCharachtersShop: [AllCharachter] = []
+    var allCharachtersShop: [CharachterModel] = []
     var musicManager = MusicManager.shared
     
     
@@ -101,7 +101,7 @@ class ShopCollectionViewController: UIViewController {
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCell
         
-        cell.charachtersShopImageView.image = allCharachtersShop[indexPath.row].picture
+         cell.charachtersShopImageView.image = UIImage(named: allCharachtersShop[indexPath.row].picture)
         
         return cell
     }
@@ -114,8 +114,8 @@ class ShopCollectionViewController: UIViewController {
        if segue.identifier == "showDetail" {
           let detailShopController = segue.destination as! DetailShopViewController
                if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
-                   detailShopController.imageReceived = allCharachtersShop[selectedIndexPath.row].picture
-                   detailShopController.information = allCharachtersShop[selectedIndexPath.row].description
+                   detailShopController.imageReceived = UIImage(named: allCharachtersShop[selectedIndexPath.row].picture)!
+                   detailShopController.information = allCharachtersShop[selectedIndexPath.row].charachterDescription
                for charachter in allCharachtersShop {
                    detailShopController.bringTextLabel = "\(charachter.rarity.bring)"
                    detailShopController.coastTextLabel = "\(charachter.rarity.price)"

@@ -58,25 +58,33 @@ class DetailShopViewController: UIViewController {
     }
     
     @IBAction func buyButton(_ sender: Any) {
-        if let index = shopCharachters.firstIndex(where: { $0.picture == imageReceived && !$0.isPurchased }) {
-            if belly >= shopCharachters[index].rarity.price {
-                belly -= shopCharachters[index].rarity.price
-                allBelly.text = "\(formatNumber(number: belly))"
+        if let index = shopCharachters.firstIndex(where: { UIImage(named: $0.picture) == imageReceived && !$0.isPurchased }) {
+            let realm = try! Realm()
+            if let purchasedCharachters = realm.objects(CharachterModel.self).filter("id == \(shopCharachters[index].id) AND isPurchased == true", shopCharachters[index].picture).first {
+                showAlert(title: "Error", message: "This charachter is already bought.")
+            } else if belly >= shopCharachters[index].rarity.price {
                 let realm = try! Realm()
                 try! realm.write {
-                    let bellyData = BellyData()
-                    bellyData.value = belly
-                    realm.add(bellyData)
+                    let saveCharachter = CharachterModel()
+                    saveCharachter.id = shopCharachters[index].id
+                    saveCharachter.picture = shopCharachters[index].picture
+                    saveCharachter.isPurchased = true
+                    availableCharachter.append(shopCharachters[index])
+                    showAlert(title: "Congratulations!", message: "You bought this charachter, now you can meet him in the game.")
+                    realm.add(saveCharachter)
                 }
-                availableCharachter.append(shopCharachters[index])
-                shopCharachters[index].isPurchased = true
-                
-                showAlert(title: "Congratulations!", message: "You bought this charachter, now you can meet him in the game.")
+                    belly -= shopCharachters[index].rarity.price
+                    allBelly.text = "\(formatNumber(number: belly))"
+                    try! realm.write {
+                        let bellyData = BellyData()
+                        bellyData.value = belly
+                        realm.add(bellyData)
+                    }
+                    availableCharachter.append(shopCharachters[index])
+                    shopCharachters[index].isPurchased = true
             } else {
                 showAlert(title: "Error", message: "You don't have enough money.")
             }
-        } else {
-            showAlert(title: "Error", message: "This charachter is already bought.")
         }
     }
 }

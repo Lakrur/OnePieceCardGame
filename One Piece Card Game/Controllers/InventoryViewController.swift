@@ -15,9 +15,9 @@ class InventoryViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var purchasedCharachters: [AllCharachter] = []
+    var purchasedCharachters: [CharachterModel] = []
     var purchasedFlags: [FlagModel] = []
-    var purchasedBackrounds: [BackgroundModel] = []
+    var purchasedBackrounds: [GameBackgroundModel] = []
     var musicManager = MusicManager.shared
    
     
@@ -58,9 +58,9 @@ class InventoryViewController: UIViewController {
         
         
         let realm = try! Realm()
-        let purchasedBackgrounds = realm.objects(BackgroundModel.self).filter("isPurchased == true")
+        let purchasedBackgrounds = realm.objects(GameBackgroundModel.self).filter("isPurchased == true")
 
-        var fetchedBackground: [BackgroundModel] = [BackgroundModel(picture: UIImage(named: "background0")!, isPurchased: true, id: 1)]
+        var fetchedBackground: [GameBackgroundModel] = [GameBackgroundModel(picture: "background0", isPurchased: true, id: 1)]
         
         availableBackgrounds.removeAll()
         
@@ -126,11 +126,11 @@ class InventoryViewController: UIViewController {
         
         switch segmentedControl.selectedSegmentIndex {
            case 0:
-               cell.inventoryImageView.image = purchasedCharachters[indexPath.row].picture
+            cell.inventoryImageView.image = UIImage(named: purchasedCharachters[indexPath.row].picture)
            case 1:
             cell.inventoryImageView.image = UIImage(named: purchasedFlags[indexPath.row].picture)
         case 2:
-            if let image = UIImage(data: purchasedBackrounds[indexPath.row].picture) {
+            if let image = UIImage(named: purchasedBackrounds[indexPath.row].picture) {
                        cell.inventoryImageView.image = image
                    }
            default:
@@ -159,7 +159,7 @@ class InventoryViewController: UIViewController {
                     inventoryEquipViewController.imageRecieve = UIImage(named: availableFlags[selectedIndexPath.row].picture)!
                     inventoryEquipViewController.labelRecive = availableFlags[selectedIndexPath.row].flagDescription
                 case 2:
-                    inventoryEquipViewController.backgroundImageReceive = UIImage(data: availableBackgrounds[selectedIndexPath.row].picture)!
+                    inventoryEquipViewController.backgroundImageReceive = UIImage(named: availableBackgrounds[selectedIndexPath.row].picture)!
                 default:
                     print("error")
                 }

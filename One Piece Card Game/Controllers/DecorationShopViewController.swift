@@ -12,7 +12,7 @@ private let reuseIdentifier =  "DecorationShopCell"
 class DecorationShopViewController: UIViewController {
     
     var cardFlags: [FlagModel] = []
-    var wallpapers: [BackgroundModel] = []
+    var wallpapers: [GameBackgroundModel] = []
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -73,7 +73,7 @@ class DecorationShopViewController: UIViewController {
         case 0:
             cell.decorationImageView.image = UIImage(named: cardFlags[indexPath.row].picture)!
         case 1:
-            cell.decorationImageView.image = UIImage(data: wallpapers[indexPath.row].picture)
+            cell.decorationImageView.image = UIImage(named: wallpapers[indexPath.row].picture)
         default:
             print("error")
         }
@@ -94,7 +94,7 @@ class DecorationShopViewController: UIViewController {
                         
                     }
                 case 1:
-                    detailDecorShopController.backgroundImageRecive = wallpapers[selectedIndexPath.row].picture
+                    detailDecorShopController.backgroundImageRecive = UIImage(named: wallpapers[selectedIndexPath.row].picture)!
                     for backgorund in shopBackgrounds {
                         detailDecorShopController.priceRecive = "\(backgorund.price)"
                     }

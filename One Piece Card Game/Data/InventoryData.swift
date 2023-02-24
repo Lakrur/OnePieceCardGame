@@ -10,17 +10,17 @@ import UIKit
 import RealmSwift
 
 
-class BackgroundModel: Object {
+class GameBackgroundModel: Object {
    
-    @Persisted var picture: Data
+    @Persisted var picture: String
     @Persisted var price = 80_000
     @Persisted var isPurchased: Bool = false
     @Persisted var id: Int
     
     
-    convenience init(picture: UIImage, isPurchased: Bool, id: Int) {
+    convenience init(picture: String, isPurchased: Bool, id: Int) {
             self.init()
-            self.picture = picture.pngData()!
+            self.picture = picture
             self.isPurchased = isPurchased
             self.id = id
         }
@@ -42,3 +42,22 @@ class FlagModel: Object {
         self.id = id
     }
 }
+
+class CharachterModel: Object {
+    
+    @Persisted var id: Int
+    @Persisted var picture: String
+    @Persisted var rarity: Rarety
+    @Persisted var charachterDescription: String
+    @Persisted var isPurchased = false
+    
+    convenience init(id: Int, picture: String, rarity: Rarety, charachterDescription: String, isPurchased: Bool) {
+        self.init()
+        self.id = id
+        self.picture = picture
+        self.rarity = rarity
+        self.charachterDescription = charachterDescription
+        self.isPurchased = isPurchased
+    }
+}
+

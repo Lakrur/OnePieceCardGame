@@ -55,10 +55,14 @@ class InventoryEquipViewController: UIViewController {
     @IBAction func equipButtonAction(_ sender: Any) {
         if let index = availableFlags.firstIndex(where: { UIImage(named: $0.picture) == imageRecieve }) {
             currentlyUsedFlag = availableFlags[index]
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(currentlyUsedFlag?.id, forKey: "currentlyUsedFlag")
             showAlert(title: "Well done!", message: "Decoration applied successfully!")
             
-        } else if let index = availableBackgrounds.firstIndex(where: { $0.picture == backgroundImageReceive.pngData() }) {
+        } else if let index = availableBackgrounds.firstIndex(where: { UIImage(named: $0.picture) == backgroundImageReceive }) {
             currentlyUsedBackground = availableBackgrounds[index]
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(currentlyUsedBackground?.id, forKey: "currentlyUsedBackground")
             showAlert(title: "Well done!", message: "Decoration applied successfully!")
         }
     }
