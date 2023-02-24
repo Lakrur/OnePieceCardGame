@@ -14,7 +14,7 @@ Match game in the One Piece universe. The user needs to find identical cards and
 
 ## Presentation 
 On first launch, the user is greeted by a PageView, quickly going through the most basic details.
-![](https://ibb.co/NxBYmWV)
+![1](https://user-images.githubusercontent.com/90847948/221291861-ca151fbb-639c-426a-8191-8f29aa9880a8.GIF)
 
 
 
