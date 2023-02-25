@@ -55,6 +55,7 @@ class GameViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // gets belly values
         let realm = try! Realm()
         if let bellyData = realm.objects(BellyData.self).last {
             belly = bellyData.value
@@ -62,26 +63,36 @@ class GameViewController: UIViewController {
         
         allBelly.text = ": \(formatNumber(number: belly))"
         
+        // music settings
         let userDefaults = UserDefaults.standard
-        
         musicManager.audioPlayer?.volume = userDefaults.float(forKey: "musicVolume")
         musicManager.resumeMusic()
         
         startPresentation()
         
-        if let background = currentlyUsedBackground {
-            backgroundImage.image = UIImage(named: background.picture)
+        // loading currently used flags and backgrounds from the database
+        if let equipedBackground = realm.objects(BackgroundModel.self).last {
+            currentlyUsedBackground = equipedBackground
+                backgroundImage.image = UIImage(named: equipedBackground.picture)
         }
-        if let flag = currentlyUsedFlag {
-            for button in buttonCollection {
-                button.setImage(UIImage(named: flag.picture), for: .normal)
+        
+        if let equipedFlag = realm.objects(FlagModel.self).last {
+            currentlyUsedFlag = equipedFlag
+            if let flag = currentlyUsedFlag {
+                for button in buttonCollection {
+                    button.setImage(UIImage(named: flag.picture), for: .normal)
+                }
             }
         }
+    
+        // setting the number of characters
         let tempArray = availableCharachter.shuffled()
         let slicedTempArray = tempArray[0...8].shuffled()
         charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
         
         
+        
+        // loading charachters from the database
         let purchasedCharachters = realm.objects(CharachterModel.self).filter("isPurchased == true")
         
         availableCharachter.removeAll()
@@ -106,9 +117,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let sound = AudioService.shared
-        
         musicManager.playMusic()
-        
         sound.player.volume = UserDefaults.standard.float(forKey: "playerVolume")
         
         resetCard()

@@ -55,12 +55,25 @@ class InventoryEquipViewController: UIViewController {
     
     @IBAction func equipButtonAction(_ sender: Any) {
         if let index = availableFlags.firstIndex(where: { UIImage(named: $0.picture) == imageRecieve }) {
-            currentlyUsedFlag = availableFlags[index]
-            showAlert(title: "Well done!", message: "Decoration applied successfully!")
-            
+            let realm = try! Realm()
+            try! realm.write {
+                var equipedFlag = FlagModel()
+                equipedFlag.picture = availableFlags[index].picture
+                equipedFlag.id = availableFlags[index].id
+                currentlyUsedFlag = availableFlags[index]
+                showAlert(title: "Well done!", message: "Decoration applied successfully!")
+                realm.add(equipedFlag)
+            }
         } else if let index = availableBackgrounds.firstIndex(where: { UIImage(named: $0.picture) == backgroundImageReceive }) {
-            currentlyUsedBackground = availableBackgrounds[index]
-            showAlert(title: "Well done!", message: "Decoration applied successfully!")
+            let realm = try! Realm()
+            try! realm.write {
+                var equipedBackground = BackgroundModel()
+                equipedBackground.picture = availableBackgrounds[index].picture
+                equipedBackground.id = availableBackgrounds[index].id
+                currentlyUsedBackground = availableBackgrounds[index]
+                showAlert(title: "Well done!", message: "Decoration applied successfully!")
+                realm.add(equipedBackground)
+            }
         }
     }
 }

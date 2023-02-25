@@ -60,4 +60,3 @@ class CharachterModel: Object {
         self.isPurchased = isPurchased
     }
 }
-
