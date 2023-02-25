@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import RealmSwift
 
 class InventoryEquipViewController: UIViewController {
-
+    
     @IBOutlet weak var passedImageView: UIImageView!
     @IBOutlet weak var passedLabel: UILabel!
     @IBOutlet weak var equip: UIButton!
@@ -31,7 +32,7 @@ class InventoryEquipViewController: UIViewController {
         passedImageView.image = imageRecieve
         passedLabel.text = labelRecive
         backgroundImage.image = backgroundImageReceive
-      
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,18 +52,14 @@ class InventoryEquipViewController: UIViewController {
         
     }
     
-
+    
     @IBAction func equipButtonAction(_ sender: Any) {
         if let index = availableFlags.firstIndex(where: { UIImage(named: $0.picture) == imageRecieve }) {
             currentlyUsedFlag = availableFlags[index]
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(currentlyUsedFlag?.id, forKey: "currentlyUsedFlag")
             showAlert(title: "Well done!", message: "Decoration applied successfully!")
             
         } else if let index = availableBackgrounds.firstIndex(where: { UIImage(named: $0.picture) == backgroundImageReceive }) {
             currentlyUsedBackground = availableBackgrounds[index]
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(currentlyUsedBackground?.id, forKey: "currentlyUsedBackground")
             showAlert(title: "Well done!", message: "Decoration applied successfully!")
         }
     }

@@ -71,45 +71,47 @@ class DecorDetailShopViewController: UIViewController {
                     showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
                     realm.add(saveFlags)
                 }
-                    belly -= shopFlags[index].price
-                    allBelly.text = "\(formatNumber(number: belly))"
-                    let realm = try! Realm()
-                    try! realm.write {
-                        let bellyData = realm.objects(BellyData.self).first!
-                        bellyData.value = belly
-                    }
-                    availableFlags.append(shopFlags[index])
-                    shopFlags[index].isPurchased = true
-                } else {
-                    showAlert(title: "Error", message: "You don't have enough money.")
-                }
-        }  else if let index = shopBackgrounds.firstIndex(where: { UIImage(named: $0.picture) == backgroundImageRecive && !$0.isPurchased }) {
+                belly -= shopFlags[index].price
+                allBelly.text = "\(formatNumber(number: belly))"
                 let realm = try! Realm()
-    if let purchasedBackground = realm.objects(GameBackgroundModel.self).filter("id == \(shopBackgrounds[index].id) AND isPurchased == true", shopBackgrounds[index].picture).first {
-        showAlert(title: "Error", message: "You already own this background.")
-    } else if belly >= shopBackgrounds[index].price {
-                    let realm = try! Realm()
-                    try! realm.write {
-                        let saveBackground = GameBackgroundModel()
-                        saveBackground.id = shopBackgrounds[index].id
-                        saveBackground.picture = shopBackgrounds[index].picture
-                        saveBackground.isPurchased = true
-                        availableBackgrounds.append(shopBackgrounds[index])
-                        showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
-                        realm.add(saveBackground)
-                    }
-                    belly -= shopBackgrounds[index].price
-                    allBelly.text = "\(formatNumber(number: belly))"
-                    try! realm.write {
-                        let bellyData = realm.objects(BellyData.self).first!
-                        bellyData.value = belly
-                    }
-                } else {
-                    showAlert(title: "Error", message: "You don't have enough money.")
+                try! realm.write {
+                    let bellyData = BellyData()
+                    bellyData.value = belly
+                    realm.add(bellyData)
+                }
+                availableFlags.append(shopFlags[index])
+                shopFlags[index].isPurchased = true
+            } else {
+                showAlert(title: "Error", message: "You don't have enough money.")
+            }
+        }  else if let index = shopBackgrounds.firstIndex(where: { UIImage(named: $0.picture) == backgroundImageRecive && !$0.isPurchased }) {
+            let realm = try! Realm()
+            if let purchasedBackground = realm.objects(BackgroundModel.self).filter("id == \(shopBackgrounds[index].id) AND isPurchased == true", shopBackgrounds[index].picture).first {
+                showAlert(title: "Error", message: "You already own this background.")
+            } else if belly >= shopBackgrounds[index].price {
+                let realm = try! Realm()
+                try! realm.write {
+                    let saveBackground = BackgroundModel()
+                    saveBackground.id = shopBackgrounds[index].id
+                    saveBackground.picture = shopBackgrounds[index].picture
+                    saveBackground.isPurchased = true
+                    availableBackgrounds.append(shopBackgrounds[index])
+                    showAlert(title: "Congratulations!", message: "Now you can use this decoration by selecting it in your inventory.")
+                    realm.add(saveBackground)
+                }
+                belly -= shopBackgrounds[index].price
+                allBelly.text = "\(formatNumber(number: belly))"
+                try! realm.write {
+                    let bellyData = BellyData()
+                    bellyData.value = belly
+                    realm.add(bellyData)
                 }
             } else {
-                showAlert(title: "Error", message: "You can't buy this item.")
+                showAlert(title: "Error", message: "You don't have enough money.")
             }
+        } else {
+            showAlert(title: "Error", message: "You can't buy this item.")
         }
     }
-       
+}
+

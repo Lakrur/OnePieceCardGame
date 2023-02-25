@@ -4,7 +4,6 @@
 //
 //  Created by Yehor Krupiei on 28.01.2023.
 //
-
 import UIKit
 import RealmSwift
 
@@ -17,7 +16,7 @@ class InventoryViewController: UIViewController {
     
     var purchasedCharachters: [CharachterModel] = []
     var purchasedFlags: [FlagModel] = []
-    var purchasedBackrounds: [GameBackgroundModel] = []
+    var purchasedBackrounds: [BackgroundModel] = []
     var musicManager = MusicManager.shared
    
     
@@ -58,9 +57,9 @@ class InventoryViewController: UIViewController {
         
         
         let realm = try! Realm()
-        let purchasedBackgrounds = realm.objects(GameBackgroundModel.self).filter("isPurchased == true")
+        let purchasedBackgrounds = realm.objects(BackgroundModel.self).filter("isPurchased == true")
 
-        var fetchedBackground: [GameBackgroundModel] = [GameBackgroundModel(picture: "background0", isPurchased: true, id: 1)]
+        var fetchedBackground: [BackgroundModel] = [BackgroundModel(picture: "background0", isPurchased: true, id: 1)]
         
         availableBackgrounds.removeAll()
         

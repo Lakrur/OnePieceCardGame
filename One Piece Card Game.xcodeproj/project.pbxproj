@@ -35,7 +35,7 @@
 		78E5AA072985820500695C39 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5AA062985820500695C39 /* SettingsViewController.swift */; };
 		78E9B55C2975F4D70027533D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55B2975F4D70027533D /* AppDelegate.swift */; };
 		78E9B55E2975F4D70027533D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55D2975F4D70027533D /* SceneDelegate.swift */; };
-		78E9B5602975F4D70027533D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55F2975F4D70027533D /* ViewController.swift */; };
+		78E9B5602975F4D70027533D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B55F2975F4D70027533D /* GameViewController.swift */; };
 		78E9B5632975F4D70027533D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E9B5612975F4D70027533D /* Main.storyboard */; };
 		78E9B5652975F4D80027533D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78E9B5642975F4D80027533D /* Assets.xcassets */; };
 		78E9B5682975F4D80027533D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78E9B5662975F4D80027533D /* LaunchScreen.storyboard */; };
@@ -69,7 +69,7 @@
 		78E9B5582975F4D70027533D /* One Piece Card Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "One Piece Card Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78E9B55B2975F4D70027533D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78E9B55D2975F4D70027533D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		78E9B55F2975F4D70027533D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		78E9B55F2975F4D70027533D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		78E9B5622975F4D70027533D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78E9B5642975F4D80027533D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78E9B5672975F4D80027533D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		78E5AA012985813D00695C39 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				78E9B55F2975F4D70027533D /* ViewController.swift */,
+				78E9B55F2975F4D70027533D /* GameViewController.swift */,
 				78E5AA04298581F600695C39 /* InventoryViewController.swift */,
 				78E5AA062985820500695C39 /* SettingsViewController.swift */,
 				78D66883298848ED00AD521B /* ShopCollectionViewController.swift */,
@@ -284,7 +284,7 @@
 				78958260298BF34E00E12A54 /* Enums.swift in Sources */,
 				78B142D929A567B30058E57F /* BellyData.swift in Sources */,
 				789582AD2995733700E12A54 /* DecorationShopCell.swift in Sources */,
-				78E9B5602975F4D70027533D /* ViewController.swift in Sources */,
+				78E9B5602975F4D70027533D /* GameViewController.swift in Sources */,
 				78D668882988518B00AD521B /* ShopCell.swift in Sources */,
 				78E5AA05298581F600695C39 /* InventoryViewController.swift in Sources */,
 				789582AA29956E0100E12A54 /* DecorationShopViewController.swift in Sources */,
@@ -450,6 +450,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -478,6 +479,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

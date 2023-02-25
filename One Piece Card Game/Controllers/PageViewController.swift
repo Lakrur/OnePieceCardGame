@@ -31,8 +31,9 @@ class PageViewController: UIPageViewController {
         guard index < presentScreenContent.count else {
             let userDefaults = UserDefaults.standard
             userDefaults.set(true, forKey: "presentationWasViewed")
-            dismiss(animated: true)
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.dismiss(animated: true)
+            }
             return nil }
         guard let contentViewController = storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as? ContentViewController else { return nil }
         

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameViewController.swift
 //  One Piece Card Game
 //
 //  Created by Yehor Krupiei on 16.01.2023.
@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 import RealmSwift
 
-class ViewController: UIViewController {
+class GameViewController: UIViewController {
     
     var flippedCharachter: (character: CharachterModel, button: UIButton)?
     var charachterCollection: [CharachterModel] = []
@@ -69,13 +69,14 @@ class ViewController: UIViewController {
         
         startPresentation()
         
-        backgroundImage.image = UIImage(named: currentlyUsedBackground!.picture)
-        
-        
-        for button in buttonCollection {
-            button.setImage(UIImage(named: currentlyUsedFlag!.picture), for: .normal)
+        if let background = currentlyUsedBackground {
+            backgroundImage.image = UIImage(named: background.picture)
         }
-        
+        if let flag = currentlyUsedFlag {
+            for button in buttonCollection {
+                button.setImage(UIImage(named: flag.picture), for: .normal)
+            }
+        }
         let tempArray = availableCharachter.shuffled()
         let slicedTempArray = tempArray[0...8].shuffled()
         charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
@@ -98,7 +99,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     // MARK: func viewDidLoad
     
     
@@ -114,7 +114,6 @@ class ViewController: UIViewController {
         resetCard()
         
         allBelly = bellyCounter
-        
         
         // MARK: Menu
         

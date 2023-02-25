@@ -67,14 +67,12 @@ class SettingsViewController: UIViewController {
         
         
         sound.player.volume = sender.value
-        //print(sound.player.volume)
         
         userDefaults.set(soundSlider.value, forKey: "playerVolume")
         userDefaults.set(sound.player.volume, forKey: "playerVolume")
         
         userDefaults.synchronize()
         
-        //AudioService.shared.player.play()
     }
     
     
