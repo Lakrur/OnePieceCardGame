@@ -68,6 +68,7 @@ class DetailShopViewController: UIViewController {
                     let saveCharachter = CharachterModel()
                     saveCharachter.id = shopCharachters[index].id
                     saveCharachter.picture = shopCharachters[index].picture
+                    saveCharachter.rarity = shopCharachters[index].rarity
                     saveCharachter.isPurchased = true
                     availableCharachter.append(shopCharachters[index])
                     showAlert(title: "Congratulations!", message: "You bought this charachter, now you can meet him in the game.")
