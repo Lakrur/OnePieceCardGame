@@ -84,13 +84,6 @@ class GameViewController: UIViewController {
                 }
             }
         }
-    
-        // setting the number of characters
-        let tempArray = availableCharachter.shuffled()
-        let slicedTempArray = tempArray[0...8].shuffled()
-        charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
-        
-        
         
         // loading charachters from the database
         let purchasedCharachters = realm.objects(CharachterModel.self).filter("isPurchased == true")
@@ -108,6 +101,13 @@ class GameViewController: UIViewController {
                 availableCharachter.append(charachter)
             }
         }
+        
+    
+        // setting the number of characters
+        let tempArray = availableCharachter.shuffled()
+        let slicedTempArray = tempArray[0...8].shuffled()
+        charachterCollection = (slicedTempArray + slicedTempArray).shuffled()
+        
     }
     
     // MARK: func viewDidLoad
